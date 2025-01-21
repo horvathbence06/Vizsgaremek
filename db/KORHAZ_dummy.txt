@@ -1,0 +1,8 @@
+1;LuxMed Nyíregyháza;4400 Nyíregyháza, Szabolcs utca 12.
+2;LuxMed Pest;1106 Budapest, Üllői út 132.
+3;LuxMed Buda;1117 Budapest, Bartók Béla út 74.
+4;LuxMed Debrecen;4025 Debrecen, Piac utca 45.
+5;LuxMed Szeged;6720 Szeged, Kárász utca 33.
+6;LuxMed Pécs;7621 Pécs, Jókai utca 18.
+7;LuxMed Győr;9021 Győr, Arany János utca 10.
+8;LuxMed Miskolc;3530 Miskolc, Szent István út 8.
