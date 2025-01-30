@@ -1,0 +1,63 @@
+@startuml
+class Felhasznalo {
+  +felhasznalo_id: int
+  +teljes_nev: string
+  +felhasznalo_nev: string
+  +jelszo: string
+  +admin: boolean
+}
+
+class Orvos {
+  +orvos_id: int
+  +nev: string
+  +korhaz_id: int
+  +telefonszam: string
+  +email: string
+  +szakterulet_id: int
+  +kep_nev: string
+}
+
+class Korhaz {
+  +korhaz_id: int
+  +korhaz_nev: string
+  +korhaz_cim: string
+}
+
+class Szakterulet {
+  +szakterulet_id: int
+  +szakterulet_nev: string
+}
+
+class Szolgaltatas {
+  +szolgaltatas_id: int
+  +szolgaltatas_nev: string
+  +szakterulet_id: int
+  +ar: float
+}
+
+class Idopont {
+  +idopont_id: int
+  +ido: datetime
+  +felhasznalo_id: int
+  +orvos_id: int
+  +korhaz_id: int
+  +szolgaltatas_id: int
+}
+
+class Velemeny {
+  +velemeny_id: int
+  +velemeny_text: string
+  +felhasznalo_id: int
+  +orvos_id: int
+  +bejegyzes_ido: datetime
+}
+
+Felhasznalo "1" -- "*" Idopont
+Orvos "1" -- "*" Idopont
+Korhaz "1" -- "*" Orvos
+Szakterulet "1" -- "*" Orvos
+Szakterulet "1" -- "*" Szolgaltatas
+Szolgaltatas "1" -- "*" Idopont
+Felhasznalo "1" -- "*" Velemeny
+Velemeny "*" -- "1" Orvos
+@enduml
