@@ -1,43 +1,43 @@
-1;Belgyógyászati vizsgálat;Belgyógyászat;30000
-2;Belgyógyászati műtét;Belgyógyászat;120000
-3;Bőrgyógyászati vizsgálat;Bőrgyógyászat;25000
-4;Bőrgyógyászati műtét;Bőrgyógyászat;100000
-5;Dietetikai tanácsadás;Dietetika;10000
-7;Endokrinológiai vizsgálat;Endokrinológia;35000
-8;Endokrinológiai műtét;Endokrinológia;180000
-9;Érsebészeti vizsgálat;Érsebészet;40000
-10;Érsebészeti műtét;Érsebészet;250000
-11;Fül-Orr-Gégészeti vizsgálat;Fül-Orr-Gégészet;28000
-12;Fül-Orr-Gégészeti műtét;Fül-Orr-Gégészet;130000
-13;Gasztroenterológiai vizsgálat;Gasztroenterológia;35000
-14;Gasztroenterológiai műtét;Gasztroenterológia;200000
-15;Gyermeksebészeti vizsgálat;Gyermeksebészet;30000
-16;Gyermeksebészeti műtét;Gyermeksebészet;150000
-17;Hematológiai vizsgálat;Hematológia;32000
-18;Hematológiai műtét;Hematológia;190000
-19;Idegsebészeti vizsgálat;Idegsebészet;45000
-20;Idegsebészeti műtét;Idegsebészet;300000
-21;Kardiológiai vizsgálat;Kardiológia;40000
-22;Szívműtét;Kardiológia;250000
-23;Kézsebészeti vizsgálat;Kézsebészet;35000
-24;Kézműtét;Kézsebészet;150000
-25;Neurológiai vizsgálat;Neurológia;30000
-26;Neurológiai műtét;Neurológia;220000
-27;Nőgyógyászati vizsgálat;Nőgyógyászat;28000
-28;Nőgyógyászati műtét;Nőgyógyászat;160000
-29;Ortopédiai vizsgálat;Ortopédia;35000
-30;Ortopédiai műtét;Ortopédia;250000
-31;Plasztikai sebészeti vizsgálat;Plasztikai Sebészet;50000
-32;Plasztikai műtét;Plasztikai Sebészet;350000
-33;Pulmonológiai vizsgálat;Pulmonológia;35000
-34;Pulmonológiai műtét;Pulmonológia;180000
-35;Reumatológiai vizsgálat;Reumatológia;30000
-36;Reumatológiai műtét;Reumatológia;180000
-37;Sebészeti vizsgálat;Sebészet;40000
-38;Sebészeti műtét;Sebészet;250000
-39;Szemészeti vizsgálat;Szemészet;25000
-40;Szemműtét;Szemészet;150000
-41;Szülészeti vizsgálat;Szülészet;35000
-42;Szülés (programozott);Szülészet;200000
-43;Urológiai vizsgálat;Urológia;30000
-44;Urológiai műtét;Urológia;220000
+1;Belgyógyászati vizsgálat;3;30000
+2;Belgyógyászati műtét;3;120000
+3;Bőrgyógyászati vizsgálat;4;25000
+4;Bőrgyógyászati műtét;4;100000
+5;Dietetikai tanácsadás;5;10000
+7;Endokrinológiai vizsgálat;6;35000
+8;Endokrinológiai műtét;6;180000
+9;Érsebészeti vizsgálat;7;40000
+10;Érsebészeti műtét;7;250000
+11;Fül-Orr-Gégészeti vizsgálat;8;28000
+12;Fül-Orr-Gégészeti műtét;8;130000
+13;Gasztroenterológiai vizsgálat;9;35000
+14;Gasztroenterológiai műtét;9;200000
+15;Gyermeksebészeti vizsgálat;10;30000
+16;Gyermeksebészeti műtét;10;150000
+17;Hematológiai vizsgálat;11;32000
+18;Hematológiai műtét;11;190000
+19;Idegsebészeti vizsgálat;12;45000
+20;Idegsebészeti műtét;12;300000
+21;Kardiológiai vizsgálat;13;40000
+22;Szívműtét;13;250000
+23;Kézsebészeti vizsgálat;14;35000
+24;Kézműtét;14;150000
+25;Neurológiai vizsgálat;15;30000
+26;Neurológiai műtét;15;220000
+27;Nőgyógyászati vizsgálat;16;28000
+28;Nőgyógyászati műtét;16;160000
+29;Ortopédiai vizsgálat;17;35000
+30;Ortopédiai műtét;17;250000
+31;Plasztikai sebészeti vizsgálat;18;50000
+32;Plasztikai műtét;18;350000
+33;Pulmonológiai vizsgálat;19;35000
+34;Pulmonológiai műtét;19;180000
+35;Reumatológiai vizsgálat;20;30000
+36;Reumatológiai műtét;20;180000
+37;Sebészeti vizsgálat;21;40000
+38;Sebészeti műtét;21;250000
+39;Szemészeti vizsgálat;22;25000
+40;Szemműtét;22;150000
+41;Szülészeti vizsgálat;23;35000
+42;Szülés (programozott);23;200000
+43;Urológiai vizsgálat;24;30000
+44;Urológiai műtét;24;220000
