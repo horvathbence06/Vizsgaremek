@@ -11,5 +11,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class KorhazSave {
     private String korhazNev;
+    private String kepNev;
     private String korhazCim;
 }

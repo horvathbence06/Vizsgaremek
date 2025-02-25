@@ -12,5 +12,6 @@ import lombok.Setter;
 public class KorhazRead {
     private Integer korhazId;
     private String korhazNev;
+    private String kepNev;
     private String korhazCim;
 }

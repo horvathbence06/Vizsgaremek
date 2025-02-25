@@ -18,16 +18,126 @@ CREATE SCHEMA IF NOT EXISTS `luxmed` DEFAULT CHARACTER SET utf8 ;
 USE `luxmed` ;
 
 -- -----------------------------------------------------
+-- Table `luxmed`.`Permission`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `luxmed`.`Permission` (
+	`permission_id` VARCHAR(45) NOT NULL, 
+	PRIMARY KEY (`permission_id`))
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Dummy `luxmed`.`Permission`
+-- -----------------------------------------------------
+INSERT INTO `luxmed`.`Permission` (`permission_id`) VALUES
+	('CREATE_SZOLGALTATAS'),
+    ('UPDATE_SZOLGALTATAS'),
+    ('DELETE_SZOLGALTATAS'),
+    ('CREATE_ORVOS'),
+    ('UPDATE_ORVOS'),
+    ('DELETE_ORVOS'),
+    ('FILTER_ORVOS_BY_KORHAZ_AND_SZAKTERULET'),
+    ('READ_FELHASZNALO'),
+    ('UPDATE_FELHASZNALO'),
+    ('DELETE_FELHASZNALO'),
+    ('LIST_FELHASZNALO'),
+    ('CREATE_IDOPONT'),
+    ('READ_IDOPONT'),
+    ('DELETE_IDOPONT'),
+    ('LIST_IDOPONT'),
+    ('CREATE_KORHAZ'),
+    ('UPDATE_KORHAZ'),
+    ('DELETE_KORHAZ'),
+    ('CREATE_SZAKTERULET'),
+    ('DELETE_SZAKTERULET'),
+    ('CREATE_VELEMENY'),
+    ('READ_VELEMENY'),
+    ('UPDATE_VELEMENY'),
+    ('DELETE_VELEMENY'),
+    ('FILTER_VELEMENY_BY_ORVOS');
+
+-- -----------------------------------------------------
 -- Table `luxmed`.`Felhasznalo`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `luxmed`.`Felhasznalo` (
   `felhasznalo_id` INT NOT NULL AUTO_INCREMENT,
   `felhasznalo_nev` VARCHAR(45) NOT NULL,
-  `jelszo` VARCHAR(45) NOT NULL,
+  `jelszo` VARCHAR(90) NOT NULL,
   `teljes_nev` VARCHAR(45) NOT NULL,
   `admin` INT NOT NULL,
   PRIMARY KEY (`felhasznalo_id`))
 ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Dummy `luxmed`.`Felhasznalo`
+-- -----------------------------------------------------
+INSERT INTO `luxmed`.`Felhasznalo` (`felhasznalo_nev`, `jelszo`, `teljes_nev`, `admin`) VALUES
+	('test_admin', '$2y$10$rgohTjZYv2aeRV0Cnqv6Iu8KJs7rvDnzax3nlzOMEkM2G6bRF/e5m', 'Teszt Adminisztrátor', 1),
+    ('test_user', '$2y$10$HPx0SCM9YNYRkmBNxFShIuTa/zGV7Jh2vis3TLXwBP3u7SA2P7eFq', 'Teszt Felhasználó', 0);
+
+-- -----------------------------------------------------
+-- Table `luxmed`.`Allocate`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `luxmed`.`Allocate` (
+	`allocate_id` INT NOT NULL AUTO_INCREMENT,
+    `felhasznalo_id` INT NOT NULL,
+    `permission_id` VARCHAR(45) NOT NULL,
+    PRIMARY KEY (`allocate_id`),
+	INDEX `fk_Allocate_Felhasznalo1_idx` (`felhasznalo_id` ASC) VISIBLE,
+	INDEX `fk_Allocate_Permission1_idx` (`permission_id` ASC) VISIBLE,
+	CONSTRAINT `fk_Allocate_Felhasznalo1`
+		FOREIGN KEY (`felhasznalo_id`)
+		REFERENCES `luxmed`.`Felhasznalo` (`felhasznalo_id`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION,
+	CONSTRAINT `fk_Allocate_Permission1`
+		FOREIGN KEY (`permission_id`)
+		REFERENCES `luxmed`.`Permission` (`permission_id`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Dummy `luxmed`.`Allocate`
+-- -----------------------------------------------------
+INSERT INTO `luxmed`.`Allocate` (`felhasznalo_id`, `permission_id`) VALUES 
+	(1, 'CREATE_SZOLGALTATAS'),
+    (1, 'UPDATE_SZOLGALTATAS'),
+    (1, 'DELETE_SZOLGALTATAS'),
+    (1, 'CREATE_ORVOS'),
+    (1, 'UPDATE_ORVOS'),
+    (1, 'DELETE_ORVOS'),
+    (1, 'FILTER_ORVOS_BY_KORHAZ_AND_SZAKTERULET'),
+    (2, 'FILTER_ORVOS_BY_KORHAZ_AND_SZAKTERULET'),
+    (1, 'READ_FELHASZNALO'),
+    (2, 'READ_FELHASZNALO'),
+    (1, 'UPDATE_FELHASZNALO'),
+    (2, 'UPDATE_FELHASZNALO'),
+    (1, 'DELETE_FELHASZNALO'),
+    (2, 'DELETE_FELHASZNALO'),
+    (1, 'LIST_FELHASZNALO'),
+    (1, 'CREATE_IDOPONT'),
+    (2, 'CREATE_IDOPONT'),
+    (1, 'READ_IDOPONT'),
+    (2,	'READ_IDOPONT'),
+    (1, 'DELETE_IDOPONT'),
+    (2, 'DELETE_IDOPONT'),
+    (1, 'LIST_IDOPONT'),
+    (2, 'LIST_IDOPONT'),
+    (1, 'CREATE_KORHAZ'),
+    (1, 'UPDATE_KORHAZ'),
+    (1, 'DELETE_KORHAZ'),
+    (1, 'CREATE_SZAKTERULET'),
+    (1, 'UPDATE_SZAKTERULET'),
+    (1, 'DELETE_SZAKTERULET'),
+    (1, 'CREATE_VELEMENY'),
+    (2, 'CREATE_VELEMENY'),
+    (1, 'LIST_VELEMENY'),
+    (2, 'LIST_VELEMENY'),
+    (1, 'UPDATE_VELEMENY'),
+    (2, 'UPDATE_VELEMENY'),
+    (1, 'DELETE_VELEMENY'),
+    (1, 'FILTER_VELEMENY_BY_ORVOS'),
+    (2, 'FILTER_VELEMENY_BY_ORVOS');
 
 -- -----------------------------------------------------
 -- Table `luxmed`.`Szakterulet`
@@ -73,6 +183,7 @@ INSERT INTO `luxmed`.`Szakterulet` (`szakterulet_nev`) VALUES
 CREATE TABLE IF NOT EXISTS `luxmed`.`Korhaz` (
   `korhaz_id` INT NOT NULL AUTO_INCREMENT,
   `korhaz_nev` VARCHAR(45) NOT NULL,
+  `kep_nev` VARCHAR(45) NOT NULL,
   `korhaz_cim` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`korhaz_id`))
 ENGINE = InnoDB;
@@ -80,15 +191,15 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Dummy `luxmed`.`Korhaz`
 -- -----------------------------------------------------
-INSERT INTO `luxmed`.`Korhaz` (`korhaz_nev`, `korhaz_cim`) VALUES 
-    ('LuxMed Nyíregyháza', '4400 Nyíregyháza, Szabolcs utca 12.'),
-    ('LuxMed Pest', '1106 Budapest, Üllői út 132.'),
-    ('LuxMed Buda', '1117 Budapest, Bartók Béla út 74.'),
-    ('LuxMed Debrecen', '4025 Debrecen, Piac utca 45.'),
-    ('LuxMed Szeged', '6720 Szeged, Kárász utca 33.'),
-    ('LuxMed Pécs', '7621 Pécs, Jókai utca 18.'),
-    ('LuxMed Győr', '9021 Győr, Arany János utca 10.'),
-    ('LuxMed Miskolc', '3530 Miskolc, Szent István út 8.');
+INSERT INTO `luxmed`.`Korhaz` (`korhaz_nev`, `kep_nev`, `korhaz_cim`) VALUES 
+    ('LuxMed Nyíregyháza', 'nyiregyhaza.png', '4400 Nyíregyháza, Szabolcs utca 12.'),
+    ('LuxMed Pest', 'pest.png','1106 Budapest, Üllői út 132.'),
+    ('LuxMed Buda', 'buda.png', '1117 Budapest, Bartók Béla út 74.'),
+    ('LuxMed Debrecen', 'debrecen.png', '4025 Debrecen, Piac utca 45.'),
+    ('LuxMed Szeged', 'szeged.png', '6720 Szeged, Kárász utca 33.'),
+    ('LuxMed Pécs', 'pecs.png', '7621 Pécs, Jókai utca 18.'),
+    ('LuxMed Győr', 'gyor.png', '9021 Győr, Arany János utca 10.'),
+    ('LuxMed Miskolc', 'miskolc.png', '3530 Miskolc, Szent István út 8.');
 
 -- -----------------------------------------------------
 -- Table `luxmed`.`Orvos`

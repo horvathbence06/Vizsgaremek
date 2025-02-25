@@ -1,6 +1,8 @@
 package hu.backend.service;
 
+import hu.backend.converter.OrvosConverter;
 import hu.backend.converter.VelemenyConverter;
+import hu.backend.dto.orvos.OrvosList;
 import hu.backend.dto.orvos.OrvosRead;
 import hu.backend.dto.velemeny.VelemenyList;
 import hu.backend.dto.velemeny.VelemenyRead;
@@ -60,5 +62,15 @@ public class VelemenyService {
         Velemeny velemeny = velemenyRepository.getReferenceById(id);
         velemenyRepository.deleteById(id);
         return VelemenyConverter.convertModelToRead(velemeny);
+    }
+
+    public List<VelemenyList> filterVelemenyByOrvos(Integer orvosId) {
+        List<Velemeny> velemenyek;
+        if (orvosId != null) {
+            velemenyek = velemenyRepository.findFilterByOrvos(orvosId);
+        } else {
+            velemenyek = velemenyRepository.findAll();
+        }
+        return VelemenyConverter.convertModelsToLists(velemenyek);
     }
 }

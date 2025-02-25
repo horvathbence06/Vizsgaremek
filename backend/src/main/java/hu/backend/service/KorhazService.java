@@ -36,6 +36,7 @@ public class KorhazService {
     public KorhazRead updateKorhaz(Integer id, KorhazSave korhazSave) {
         Korhaz korhaz = korhazRepository.getReferenceById(id);
         korhaz.setKorhazNev(korhazSave.getKorhazNev());
+        korhaz.setKepNev(korhazSave.getKepNev());
         korhaz.setKorhazCim(korhazSave.getKorhazCim());
         korhazRepository.save(korhaz);
         return KorhazConverter.convertModelToRead(korhaz);

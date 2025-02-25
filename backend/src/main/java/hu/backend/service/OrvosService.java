@@ -59,4 +59,19 @@ public class OrvosService {
         orvosRepository.deleteById(id);
         return OrvosConverter.convertModelToRead(orvos);
     }
+
+    public List<OrvosList> filterOrvosByKorhaz(Integer korhazId) {
+        List<Orvos> orvosok;
+        if (korhazId != null) {
+            orvosok = orvosRepository.findFilterByKorhaz(korhazId);
+        } else {
+            orvosok = orvosRepository.findAll();
+        }
+        return OrvosConverter.convertModelsToLists(orvosok);
+    }
+
+    public List<OrvosList> filterOrvosByKorhazAndSzakterulet(Integer korhazId, Integer szakteruletId) {
+        List<Orvos> orvosok = orvosRepository.findByKorhazAndSzakterulet(korhazId, szakteruletId);
+        return OrvosConverter.convertModelsToLists(orvosok);
+    }
 }

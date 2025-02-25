@@ -3,7 +3,6 @@ package hu.backend.controller;
 import hu.backend.dto.velemeny.VelemenyList;
 import hu.backend.dto.velemeny.VelemenyRead;
 import hu.backend.dto.velemeny.VelemenySave;
-import hu.backend.model.Velemeny;
 import hu.backend.service.VelemenyService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -41,5 +40,11 @@ public class VelemenyController {
     @Operation(description = "Vélemény törlése a rendszerből")
     public VelemenyRead deleteVelemeny(@PathVariable Integer id){
         return velemenyService.deleteVelemeny(id);
+    }
+
+    @GetMapping("/filter-by-orvos")
+    @Operation(description = "Adott orvoshoz tartozó vélemények listázása")
+    public List<VelemenyList> filterVelemenyByOrvos(@RequestParam Integer orvosId){
+        return velemenyService.filterVelemenyByOrvos(orvosId);
     }
 }

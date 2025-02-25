@@ -12,10 +12,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class FelhasznaloService {
+public class FelhasznaloService{
     @Autowired
     private FelhasznaloRepository felhasznaloRepository;
-
 
     public FelhasznaloRead readFelhasznalo(Integer id) {
         Felhasznalo felhasznalo = felhasznaloRepository.getReferenceById(id);

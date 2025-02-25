@@ -19,5 +19,6 @@ public class Korhaz {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer korhazId;
     private String korhazNev;
+    private String kepNev;
     private String korhazCim;
 }

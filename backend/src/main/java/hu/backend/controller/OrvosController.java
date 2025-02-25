@@ -47,4 +47,16 @@ public class OrvosController {
     public OrvosRead deleteOrvos(@PathVariable Integer id){
         return orvosService.deleteOrvos(id);
     }
+
+    @GetMapping("/filter/by-korhaz")
+    @Operation(description = "Adott kórházhoz tartozó orvosok listázása")
+    public List<OrvosList> filterOrvosByKorhaz(@RequestParam Integer korhazId){
+        return orvosService.filterOrvosByKorhaz(korhazId);
+    }
+
+    @GetMapping("/filter/by-korhaz-and-szakterulet")
+    @Operation(description = "Adott kórházhoz tartozó, adott szakterületű orvosok listázása")
+    public List<OrvosList> filterOrvosByKorhazAndSzakterulet(@RequestParam Integer korhazId, @RequestParam Integer szakteruletId){
+        return orvosService.filterOrvosByKorhazAndSzakterulet(korhazId, szakteruletId);
+    }
 }

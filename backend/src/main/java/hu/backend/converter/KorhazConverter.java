@@ -13,6 +13,7 @@ public class KorhazConverter {
         KorhazRead korhazRead = new KorhazRead();
         korhazRead.setKorhazId(korhaz.getKorhazId());
         korhazRead.setKorhazNev(korhaz.getKorhazNev());
+        korhazRead.setKepNev(korhaz.getKepNev());
         korhazRead.setKorhazCim(korhaz.getKorhazCim());
         return korhazRead;
     }
@@ -20,6 +21,7 @@ public class KorhazConverter {
     public static Korhaz convertSaveToModel(KorhazSave save){
         Korhaz korhaz = new Korhaz();
         korhaz.setKorhazNev(save.getKorhazNev());
+        korhaz.setKepNev(save.getKepNev());
         korhaz.setKorhazCim(save.getKorhazCim());
         return korhaz;
     }
@@ -28,6 +30,7 @@ public class KorhazConverter {
         KorhazList korhazList = new KorhazList();
         korhazList.setKorhazId(korhaz.getKorhazId());
         korhazList.setKorhazNev(korhaz.getKorhazNev());
+        korhazList.setKepNev(korhaz.getKepNev());
         korhazList.setKorhazCim(korhaz.getKorhazCim());
         return korhazList;
     }
