@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("velemeny")
 @Tag(name = "Vélemények kezelése", description = "Véleményekhez kapcsolódó funkciócsomagok")
+@CrossOrigin(origins = "http://localhost:3000")
 public class VelemenyController {
     @Autowired
     private VelemenyService velemenyService;

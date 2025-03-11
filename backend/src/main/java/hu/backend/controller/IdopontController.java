@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("idopont")
 @Tag(name = "Időpontok kezelése", description = "Időpontokhoz kapcsolódó funkciócsomagok")
+@CrossOrigin(origins = "http://localhost:3000")
 public class IdopontController {
     @Autowired
     private IdopontService idopontService;

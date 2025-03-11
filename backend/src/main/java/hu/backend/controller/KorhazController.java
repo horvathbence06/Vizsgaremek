@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("korhaz")
 @Tag(name = "Kórházak kezelése", description = "Kórházakhoz kapcsolódó funkciócsomag")
+@CrossOrigin(origins = "http://localhost:3000")
 public class KorhazController {
     @Autowired
     private KorhazService korhazService;

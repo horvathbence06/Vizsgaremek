@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("felhasznalo")
 @Tag(name = "Felhasználók kezelése", description = "Felhasználókhoz kapcsolódó funkciócsomagok")
+@CrossOrigin(origins = "http://localhost:3000")
 public class FelhasznaloController {
     @Autowired
     private FelhasznaloService felhasznaloService;
