@@ -17,9 +17,6 @@ public class IdopontService {
     private IdopontRepository idopontRepository;
 
     @Autowired
-    private FelhasznaloRepository felhasznaloRepository;
-
-    @Autowired
     private OrvosRepository orvosRepository;
 
     @Autowired
@@ -40,11 +37,10 @@ public class IdopontService {
     }
 
     public IdopontRead createIdopont(IdopontSave idopontSave) {
-        Felhasznalo felhasznalo = felhasznaloRepository.getReferenceById(idopontSave.getFelhasznaloId());
         Orvos orvos = orvosRepository.getReferenceById(idopontSave.getOrvosId());
         Korhaz korhaz = korhazRepository.getReferenceById(idopontSave.getKorhazId());
         Szolgaltatas szolgaltatas = szolgaltatasRepository.getReferenceById(idopontSave.getSzolgaltatasId());
-        Idopont idopont = IdopontConverter.convertSaveToModel(idopontSave, felhasznalo, orvos, korhaz, szolgaltatas);
+        Idopont idopont = IdopontConverter.convertSaveToModel(idopontSave, orvos, korhaz, szolgaltatas);
         idopontRepository.save(idopont);
         return IdopontConverter.convertModelToRead(idopont);
     }

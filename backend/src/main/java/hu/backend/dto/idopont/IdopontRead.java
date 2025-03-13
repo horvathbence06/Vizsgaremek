@@ -1,6 +1,5 @@
 package hu.backend.dto.idopont;
 
-import hu.backend.dto.felhasznalo.FelhasznaloRead;
 import hu.backend.dto.korhaz.KorhazRead;
 import hu.backend.dto.orvos.OrvosRead;
 import hu.backend.dto.szolgaltatas.SzolgaltatasRead;
@@ -18,7 +17,9 @@ import java.time.LocalDateTime;
 public class IdopontRead {
     private Integer idopontId;
     private LocalDateTime ido;
-    private FelhasznaloRead felhasznalo;
+    private String foglaloNeve;
+    private String foglaloTelefonszama;
+    private String foglaloEmailCim;
     private OrvosRead orvos;
     private KorhazRead korhaz;
     private SzolgaltatasRead szolgaltatas;

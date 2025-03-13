@@ -18,9 +18,9 @@ public class Idopont {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idopontId;
     private LocalDateTime ido;
-    @ManyToOne
-    @JoinColumn(name = "felhasznalo_id")
-    private Felhasznalo felhasznalo;
+    private String foglaloNeve;
+    private String foglaloTelefonszama;
+    private String foglaloEmailCim;
     @ManyToOne
     @JoinColumn(name = "orvos_id")
     private Orvos orvos;

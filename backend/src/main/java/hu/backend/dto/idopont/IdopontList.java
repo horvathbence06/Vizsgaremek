@@ -1,6 +1,5 @@
 package hu.backend.dto.idopont;
 
-import hu.backend.dto.felhasznalo.FelhasznaloList;
 import hu.backend.dto.korhaz.KorhazList;
 import hu.backend.dto.orvos.OrvosList;
 import hu.backend.dto.szolgaltatas.SzolgaltatasList;
@@ -18,7 +17,9 @@ import java.time.LocalDateTime;
 public class IdopontList {
     private Integer idopontId;
     private LocalDateTime ido;
-    private FelhasznaloList felhasznalo;
+    private String foglaloNeve;
+    private String foglaloTelefonszama;
+    private String foglaloEmailCim;
     private OrvosList orvos;
     private KorhazList korhaz;
     private SzolgaltatasList szolgaltatas;

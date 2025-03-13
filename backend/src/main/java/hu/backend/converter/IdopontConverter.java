@@ -13,28 +13,34 @@ public class IdopontConverter {
         IdopontRead idopontRead = new IdopontRead();
         idopontRead.setIdopontId(idopont.getIdopontId());
         idopontRead.setIdo(idopont.getIdo());
-        idopontRead.setFelhasznalo(FelhasznaloConverter.convertModelToRead(idopont.getFelhasznalo()));
+        idopontRead.setFoglaloNeve(idopont.getFoglaloNeve());
+        idopont.setFoglaloTelefonszama(idopont.getFoglaloTelefonszama());
+        idopont.setFoglaloEmailCim(idopont.getFoglaloEmailCim());
         idopontRead.setOrvos(OrvosConverter.convertModelToRead(idopont.getOrvos()));
         idopontRead.setKorhaz(KorhazConverter.convertModelToRead(idopont.getKorhaz()));
         idopontRead.setSzolgaltatas(SzolgaltatasConverter.convertModelToRead(idopont.getSzolgaltatas()));
         return idopontRead;
     }
 
-    public static Idopont convertSaveToModel(IdopontSave idopontSave, Felhasznalo felhasznalo, Orvos orvos, Korhaz korhaz, Szolgaltatas szolgaltatas) {
+    public static Idopont convertSaveToModel(IdopontSave idopontSave, Orvos orvos, Korhaz korhaz, Szolgaltatas szolgaltatas) {
         Idopont idopont = new Idopont();
         idopont.setIdo(idopontSave.getIdo());
-        idopont.setFelhasznalo(felhasznalo);
+        idopont.setFoglaloNeve(idopontSave.getFoglaloNeve());
+        idopont.setFoglaloTelefonszama(idopontSave.getFoglaloTelefonszama());
+        idopont.setFoglaloEmailCim(idopontSave.getFoglaloEmailCim());
         idopont.setOrvos(orvos);
         idopont.setKorhaz(korhaz);
         idopont.setSzolgaltatas(szolgaltatas);
         return idopont;
     }
 
-    public static Idopont convertSaveToModel(Integer id, IdopontSave idopontSave, Felhasznalo felhasznalo, Orvos orvos, Korhaz korhaz, Szolgaltatas szolgaltatas) {
+    public static Idopont convertSaveToModel(Integer id, IdopontSave idopontSave, Orvos orvos, Korhaz korhaz, Szolgaltatas szolgaltatas) {
         Idopont idopont = new Idopont();
         idopont.setIdopontId(id);
         idopont.setIdo(idopontSave.getIdo());
-        idopont.setFelhasznalo(felhasznalo);
+        idopont.setFoglaloNeve(idopontSave.getFoglaloNeve());
+        idopont.setFoglaloTelefonszama(idopontSave.getFoglaloTelefonszama());
+        idopont.setFoglaloEmailCim(idopontSave.getFoglaloEmailCim());
         idopont.setOrvos(orvos);
         idopont.setKorhaz(korhaz);
         idopont.setSzolgaltatas(szolgaltatas);
@@ -45,7 +51,8 @@ public class IdopontConverter {
         IdopontList idopontList = new IdopontList();
         idopontList.setIdopontId(idopont.getIdopontId());
         idopontList.setIdo(idopont.getIdo());
-        idopontList.setFelhasznalo(FelhasznaloConverter.convertModelToList(idopont.getFelhasznalo()));
+        idopontList.setFoglaloNeve(idopont.getFoglaloNeve());
+        idopontList.setFoglaloTelefonszama(idopont.getFoglaloTelefonszama());
         idopontList.setOrvos(OrvosConverter.convertModelToList(idopont.getOrvos()));
         idopontList.setKorhaz(KorhazConverter.convertModelToList(idopont.getKorhaz()));
         idopontList.setSzolgaltatas(SzolgaltatasConverter.convertModelToList(idopont.getSzolgaltatas()));

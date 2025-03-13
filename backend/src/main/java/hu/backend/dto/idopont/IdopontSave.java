@@ -1,9 +1,5 @@
 package hu.backend.dto.idopont;
 
-import hu.backend.dto.felhasznalo.FelhasznaloList;
-import hu.backend.dto.korhaz.KorhazList;
-import hu.backend.dto.orvos.OrvosList;
-import hu.backend.dto.szolgaltatas.SzolgaltatasList;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +13,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class IdopontSave {
     private LocalDateTime ido;
-    private Integer felhasznaloId;
+    private String foglaloNeve;
+    private String foglaloTelefonszama;
+    private String foglaloEmailCim;
     private Integer orvosId;
     private Integer korhazId;
     private Integer szolgaltatasId;
