@@ -1,11 +1,13 @@
 import './App.css';
 import ImageSlider from './components/ImageSlider';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Korhazak from './components/Korhazak';
 import Kapcsolat from './components/Kapcsolat';
+import IdopontGomb from './components/IdopontGomb';
+import IdopontFoglalas from './components/IdopontFoglalas';
 
 function App() {
   return (
@@ -21,9 +23,12 @@ function App() {
         } />
         <Route path="/korhazak" element={<Korhazak />} />
         <Route path="/kapcsolat" element={<Kapcsolat />} />
+        <Route path='/idopontfoglalas' element={<IdopontFoglalas />}/>
       </Routes>
       <Footer /> 
+      <IdopontGomb />
     </Router>
+    
   );
 }
 

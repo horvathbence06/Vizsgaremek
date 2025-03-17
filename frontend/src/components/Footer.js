@@ -10,7 +10,7 @@ function Footer(){
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            padding: "0 40px",
+            padding: "0 40px"
             }}
         >
             <Box sx={{ color: '#9c7b48ff', flex: 1 }}>
