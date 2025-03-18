@@ -25,7 +25,7 @@ function Korhazak(){
                     return (
                         <Box key={korhaz.id} sx={{ width: "50%", padding: "20px", backgroundColor: "#0d0d0dff", color: "#9c7b48ff", margin: "20px", borderRadius: "10px" }}>
                             <Typography variant="h2" sx={{float: 'right'}}>{korhaz.korhazNev}</Typography>
-                            <Typography variant="h6" sx={{float: 'left'}}><img src={korhaz.kepNev} alt={korhaz.kepNev}></img></Typography>
+                            <Typography variant="h6" sx={{float: 'left'}}><img sx={{width: '50vh', height: "50vh"}} src={korhaz.kepNev} alt={korhaz.kepNev}></img></Typography>
                             <Typography variant="h6" sx={{float: 'right'}}>{korhaz.korhazCim}</Typography>
                         </Box>
                     );
