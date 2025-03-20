@@ -20,19 +20,42 @@ function Korhazak(){
     console.log(korhazak);  
     return (
         <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "linear-gradient(to bottom right, #9c7b48ff, white)" }}>
-            <Box sx={{ flex: 1, display: "flex", justifyContent: "center", alignItems: "center" }}>
-                {korhazak.map((korhaz) => {
-                    return (
-                        <Box key={korhaz.id} sx={{ width: "50%", padding: "20px", backgroundColor: "#0d0d0dff", color: "#9c7b48ff", margin: "20px", borderRadius: "10px" }}>
-                            <Typography variant="h2" sx={{float: 'right'}}>{korhaz.korhazNev}</Typography>
-                            <Typography variant="h6" sx={{float: 'left'}}><img sx={{width: '50vh', height: "50vh"}} src={korhaz.kepNev} alt={korhaz.kepNev}></img></Typography>
-                            <Typography variant="h6" sx={{float: 'right'}}>{korhaz.korhazCim}</Typography>
+            <Box sx={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", margin: '25vh 0' }}>
+                {korhazak.map((korhaz, index) => (
+                    <Box
+                        key={korhaz.id}
+                        sx={{
+                            width: "30%",
+                            padding: "20px",
+                            backgroundColor: "#0d0d0dff",
+                            color: "#9c7b48ff",
+                            marginLeft: index % 2 === 0 ? "50vh" : "0",
+                            marginRight: index % 2 === 0 ? "0" : "50vh",
+                            marginTop: "20px",
+                            marginBottom: "20px",
+                            borderRadius: "10px",
+                            display: "flex",
+                            alignItems: "center",
+                            alignSelf: index % 2 === 0 ? "flex-start" : "flex-end", 
+                        }}
+                    >
+                        <Box sx={{ flexShrink: 0, marginRight: "20px" }}>
+                            <img
+                                src={korhaz.kepNev}
+                                alt={korhaz.kepNev}
+                                style={{ width: "150px", height: "auto", borderRadius: "5px" }}
+                            />
                         </Box>
-                    );
-                }, [])}
+                        <Box sx={{ display: "flex", flexDirection: "column" }}>
+                            <Typography variant="h4">{korhaz.korhazNev}</Typography>
+                            <Typography variant="h6">{korhaz.korhazCim}</Typography>
+                        </Box>
+                    </Box>
+                ))}
             </Box>
         </Box>
     );
+    
 };
 
 export default Korhazak;
