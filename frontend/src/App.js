@@ -9,6 +9,9 @@ import Kapcsolat from './components/Kapcsolat';
 import IdopontGomb from './components/IdopontGomb';
 import IdopontFoglalas from './components/IdopontFoglalas';
 import Arlista from './components/Arlista';
+import Rolunk from "./components/Rolunk";
+
+
 
 function AppContent() {
   const location = useLocation(); 
@@ -28,6 +31,7 @@ function AppContent() {
         <Route path="/kapcsolat" element={<Kapcsolat />} />
         <Route path="/idopontfoglalas" element={<IdopontFoglalas />} />
         <Route path="/arak" element={<Arlista />} />
+        <Route path="/rolunk" element={<Rolunk />} />
       </Routes>
       <Footer />
       {location.pathname !== "/idopontfoglalas" && <IdopontGomb />}
