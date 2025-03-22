@@ -1,0 +1,2 @@
+INSERT INTO Felhasznalo(`felhasznalo_nev`, `jelszo`, `teljes_nev`, `telefonszam`, `email_cim`) VALUES
+('AdminNyiregyhaza', 'administrator123', 'Nyíregyháza Rendszeradminisztrátor', '+363676774', 'luxmedinformacio@gmail.com');

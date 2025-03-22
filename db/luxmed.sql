@@ -415,7 +415,7 @@ CREATE TABLE IF NOT EXISTS `luxmed`.`Idopont` (
   `foglalo_email_cim` VARCHAR(50) NOT NULL,
   `orvos_id` INT NOT NULL,
   `korhaz_id` INT NOT NULL,
-  `szolgaltatas_id` INT NOT NULL,
+  `szolgaltatas_id` INT NOT NULL, 
   PRIMARY KEY (`idopont_id`),
   INDEX `fk_Idopont_Orvos1_idx` (`orvos_id` ASC) VISIBLE,
   INDEX `fk_Idopont_Korhaz1_idx` (`korhaz_id` ASC) VISIBLE,
