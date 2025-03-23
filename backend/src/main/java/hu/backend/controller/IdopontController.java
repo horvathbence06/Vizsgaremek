@@ -7,6 +7,7 @@ import hu.backend.service.IdopontService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,6 +26,7 @@ public class IdopontController {
         return idopontService.readIdopont(id);
     }
 
+    @PreAuthorize("hasAuthority('LIST_IDOPONT')")
     @GetMapping("/list-all")
     @Operation(description = "Minden időpont listázása")
     public List<IdopontList> readIdopontList() {
@@ -37,6 +39,7 @@ public class IdopontController {
         return idopontService.createIdopont(idopontSave);
     }
 
+    @PreAuthorize("hasAuthority('DELETE_IDOPONT')")
     @DeleteMapping("/{id}")
     @Operation(description = "Időpont törlése a rendszerből")
     public IdopontRead deleteIdopont(@PathVariable Integer id) {

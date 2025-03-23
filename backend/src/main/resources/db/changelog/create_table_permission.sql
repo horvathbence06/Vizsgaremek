@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS Permission
+(
+    permission_id VARCHAR(30) NOT NULL PRIMARY KEY
+);

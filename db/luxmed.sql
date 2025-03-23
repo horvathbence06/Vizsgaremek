@@ -437,6 +437,102 @@ CREATE TABLE IF NOT EXISTS `luxmed`.`Idopont` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `luxmed`.`Felhasznalo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `luxmed`.`Felhasznalo` (
+  `felhasznalo_id` INT NOT NULL AUTO_INCREMENT,
+  `felhasznalo_nev` VARCHAR(50) NOT NULL,
+  `jelszo` VARCHAR(200) NOT NULL,
+  `teljes_nev` VARCHAR(100) NOT NULL,
+  `telefonszam` VARCHAR(50)     NOT NULL,
+  `email_cim` VARCHAR(50)     NOT NULL,
+  PRIMARY KEY (`felhasznalo_id`))
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Dummy `luxmed`.`Felhasznalo`
+-- -----------------------------------------------------
+INSERT INTO Felhasznalo(`felhasznalo_nev`, `jelszo`, `teljes_nev`, `telefonszam`, `email_cim`) VALUES
+	('SupremeAdmin', '$2a$12$aCq6mYVe9Bd4Tn3pKoXqTe03Bb3GTdcxHtYXT3ElpH.puWtdCbM8e', 'Rendszeradminisztrátor', '+36203676774', 'luxmedinformacio@gmail.com');
+
+-- -----------------------------------------------------
+-- Table `luxmed`.`Permission`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `luxmed`.`Permission` (
+  `permission_id` INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(`permission_id`))
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Dummy `luxmed`.`Permission`
+-- -----------------------------------------------------
+INSERT INTO Permission (permission_id)
+VALUES ('GET_FELHASZNALO'),
+       ('LIST_FELHASZNALO'),
+       ('CREATE_FELHASZNALO'),
+       ('UPDATE_FELHASZNALO'),
+       ('DELETE_FELHASZNALO'),
+       ('LIST_IDOPONT'),
+       ('DELETE_IDOPONT'),
+       ('CREATE_KORHAZ'),
+       ('UPDATE_KORHAZ'),
+       ('DELETE_KORHAZ'),
+       ('CREATE_ORVOS'),
+       ('UPDATE_ORVOS'),
+       ('DELETE_ORVOS'),
+       ('CREATE_SZAKTERULET'),
+       ('DELETE_SZAKTERULET'),
+       ('CREATE_SZOLGALTATAS'),
+       ('UPDATE_SZOLGALTATAS'),
+       ('DELETE_SZOLGALTATAS');
+       
+-- -----------------------------------------------------
+-- Table `luxmed`.`Allocate`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `luxmed`.`Allocate` (
+  `allocate_id` INT NOT NULL AUTO_INCREMENT,
+  `felhasznalo_id` INT NOT NULL,
+  `permission_id` INT NOT NULL,
+  INDEX `fk_Allocate_Felhasznalo1_idx` (`felhasznalo_id` ASC) VISIBLE,
+  INDEX `fk_Allocate_Permision1_idx` (`permission_id` ASC) VISIBLE,
+  PRIMARY KEY(`allocate_id`),
+  CONSTRAINT `fk_Allocate_Felhasznalo1`
+    FOREIGN KEY (`felhasznalo_id`)
+    REFERENCES `luxmed`.`Felhasznalo1` (`felhasznalo_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Allocate_Permission1`
+    FOREIGN KEY (`permission_id`)
+    REFERENCES `luxmed`.`Permission` (`permission_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Dummy `luxmed`.`Allocate`
+-- -----------------------------------------------------
+INSERT INTO Allocate (felhasznalo_id, permission_id)
+VALUES (1, 'GET_FELHASZNALO'),
+       (1, 'LIST_FELHASZNALO'),
+       (1, 'CREATE_FELHASZNALO'),
+       (1, 'UPDATE_FELHASZNALO'),
+       (1, 'DELETE_FELHASZNALO'),
+       (1, 'LIST_IDOPONT'),
+       (1, 'DELETE_IDOPONT'),
+       (1, 'CREATE_KORHAZ'),
+       (1, 'UPDATE_KORHAZ'),
+       (1, 'DELETE_KORHAZ'),
+       (1, 'CREATE_ORVOS'),
+       (1, 'UPDATE_ORVOS'),
+       (1, 'DELETE_ORVOS'),
+       (1, 'CREATE_SZAKTERULET'),
+       (1, 'DELETE_SZAKTERULET'),
+       (1, 'CREATE_SZOLGALTATAS'),
+       (1, 'UPDATE_SZOLGALTATAS'),
+       (1, 'DELETE_SZOLGALTATAS');
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

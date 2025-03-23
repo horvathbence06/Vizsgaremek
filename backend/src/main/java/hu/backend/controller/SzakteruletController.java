@@ -7,6 +7,7 @@ import hu.backend.service.SzakteruletService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,12 +32,14 @@ public class SzakteruletController {
         return szakteruletService.readSzakteruletList();
     }
 
+    @PreAuthorize("hasAuthority('CREATE_SZAKTERULET')")
     @PostMapping("")
     @Operation(description = "Új szakterület bejegyzése")
     public SzakteruletRead createSzakterulet(@RequestBody SzakteruletSave szakteruletSave){
         return szakteruletService.createSzakterulet(szakteruletSave);
     }
 
+    @PreAuthorize("hasAuthority('DELETE_SZAKTERULET')")
     @DeleteMapping("/{id}")
     @Operation(description = "Szakterület törlése a rendszerből")
     public SzakteruletRead deleteSzakterulet(@PathVariable Integer id){
