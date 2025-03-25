@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography, Container } from "@mui/material";
 
 
-const AboutUs = () => {
+function Rolunk(){
   return (
     <>
 
@@ -41,20 +41,19 @@ const AboutUs = () => {
           </Typography>
           <br />
           <Typography variant="body1" sx={{ color: "white", textAlign: "justify" }}>
-            A LuxMed Magánkórház az évek során folyamatosan bővült, és mára Magyarország egyik
-            legnagyobb magánegészségügyi hálózatává vált. Jelenleg 8 városban nyújtunk prémium
+            A LuxMed Magánkórház az évek során folyamatosan bővült, és mára Magyarország 7 városában, 8 intézményünkben nyújtunk prémium
             egészségügyi szolgáltatásokat:
           </Typography>
           <br />
           <Typography variant="body2" sx={{ color: "#9c7b48ff" }}>
-             Budai Központunk 2005-ben nyitotta meg kapuit.<br />
-             Pesti Klinikánk 2008 óta működik.<br />
-             Nyíregyházi Intézményünk 2012-ben csatlakozott.<br />
-             Debreceni Klinikánk 2015-ben kezdte meg működését.<br />
-             Miskolci Rendelőnk 2017-ben nyílt meg.<br />
-             Pécsi Központunk 2019 óta üzemel.<br />
-             Szegedi Klinikánk 2021-ben indult.<br />
-             Győri Kórházunk 2023-ban csatlakozott a LuxMed családhoz.<br />
+             Nyíregyházi központunk az első és legnagyobb vidéki kórházunk<br />
+             Pesti intézményünk a legnagyobb kórházunk országosan<br />
+             Budai kórházunk a főváros nyugati felének nyújt prémium szolgáltatást<br />
+             Debreceni klinikánk a keleti országrész egyik legmodernebb intézménye<br />
+             Szegedi központunk Dél-Magyarország ellátását biztosítja<br />
+             Pécsi kórházunk megnyitásával jelen lettünk a Dunántúlon is<br />
+             Győri klinikánk az Észak-Dunántúl első számú egészségügyi intézménye<br />
+             Miskolci kórházunk a LuxMed család legújabb tagja<br />
           </Typography>
           <br />
           <Typography variant="body1" sx={{ color: "white", textAlign: "justify" }}>
@@ -73,4 +72,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default Rolunk;

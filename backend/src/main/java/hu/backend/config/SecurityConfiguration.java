@@ -36,7 +36,7 @@ public class SecurityConfiguration {
 
 
     public static final String[] PUBLIC_URLS = {
-            "/felhasznalo/login", "/idopont/{id}", "/idopont",
+            "/felhasznalo/login", "/idopont/{id}", "/idopont", "/idopont/list-all",
             "/korhaz/{id}", "/korhaz/list-all",
             "/orvos/{id}", "/orvos/list-all", "/orvos/filter/by-korhaz", "orvos/filter/by-korhaz-and-szakterulet",
             "/szakterulet/{id}", "/szakterulet/list-all",
@@ -75,7 +75,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.POST, "/felhasznalo/login").permitAll()
                         .requestMatchers(HttpMethod.GET, "/idopont/{id}").permitAll()
                         .requestMatchers(HttpMethod.POST, "/idopont").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/idopont/list-all").hasAuthority("LIST_IDOPONT")
+                        .requestMatchers(HttpMethod.GET, "/idopont/list-all").permitAll()
                         .requestMatchers(HttpMethod.DELETE, "/idopont/{id}").hasAuthority("DELETE_IDOPONT")
                         .requestMatchers(HttpMethod.GET, "/korhaz/{id}").permitAll()
                         .requestMatchers(HttpMethod.GET, "/korhaz/list-all").permitAll()

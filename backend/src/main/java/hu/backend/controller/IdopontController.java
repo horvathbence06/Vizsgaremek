@@ -26,7 +26,6 @@ public class IdopontController {
         return idopontService.readIdopont(id);
     }
 
-    @PreAuthorize("hasAuthority('LIST_IDOPONT')")
     @GetMapping("/list-all")
     @Operation(description = "Minden időpont listázása")
     public List<IdopontList> readIdopontList() {

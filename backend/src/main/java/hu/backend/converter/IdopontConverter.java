@@ -40,6 +40,7 @@ public class IdopontConverter {
         idopontList.setIdo(idopont.getIdo());
         idopontList.setFoglaloNeve(idopont.getFoglaloNeve());
         idopontList.setFoglaloTelefonszama(idopont.getFoglaloTelefonszama());
+        idopontList.setFoglaloEmailCim(idopont.getFoglaloEmailCim());
         idopontList.setOrvos(OrvosConverter.convertModelToList(idopont.getOrvos()));
         idopontList.setKorhaz(KorhazConverter.convertModelToList(idopont.getKorhaz()));
         idopontList.setSzolgaltatas(SzolgaltatasConverter.convertModelToList(idopont.getSzolgaltatas()));
