@@ -1,75 +1,155 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Box, Typography, Button } from '@mui/material';
 import './ImageSlider.module.css';
 
 function ImageSlider() {
     const startingImages = ["/1.jpg", "/2.png", "/3.png", "/4.png", "/5.png"];
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+    const navigate = useNavigate(); 
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % startingImages.length);
-    }, 5000);
-    
-    return () => clearInterval(interval);
-  }, []);
-  
-  return (
-<>
-    <Box>
-      <motion.img 
-        key={currentIndex}
-        src={startingImages[currentIndex]} 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '75vh',
-          objectFit: 'cover'
-        }}
-      />
-    </Box>
-    <Box
-      sx={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "75%",
-        backgroundColor: "rgba(0, 0, 0, 0.3)", 
-      }}
-    >
-    </Box>
-    <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "75vh",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "white",
-          textAlign: "center"
-        }}
-      >
-        <Box sx={{backgroundColor: 'black', padding: '10px', opacity: '80%'}}>
-          <Typography variant="h1" fontWeight="bold" style={{fontFamily: "Times New Roman", color: 'white'}}>LUXMED Magánklinikák</Typography> 
-          <Typography variant="h3" fontWeight="bold" style={{fontFamily: "Kaushan Script", letterSpacing: 2, color: '#9c7b48ff'}}>Szeretettel várjuk ott, ahol a gyógyulás kezdődik...</Typography>
-        </Box>
-      </Box>
-    </>
-  );
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % startingImages.length);
+        }, 5000);
 
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <>
+            <Box>
+                <motion.img
+                    key={currentIndex}
+                    src={startingImages[currentIndex]}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1 }}
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100vh',
+                        objectFit: 'cover',
+                        zIndex: -2
+                    }}
+                />
+            </Box>
+
+            <Box
+                sx={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100vh",
+                    backgroundColor: "rgba(0, 0, 0, 0.3)",
+                    zIndex: -1
+                }}
+            />
+
+            <Box
+                sx={{
+                    position: "absolute",
+                    top: '15vh',
+                    left: 0,
+                    width: "100%",
+                    height: "75vh",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "white",
+                    textAlign: "center",
+                    gap: 3
+                }}
+            >
+                <Box sx={{ backgroundColor: 'rgba(0,0,0,0.7)', padding: '20px', borderRadius: '12px' }}>
+                    <Typography variant="h1" fontWeight="bold" sx={{ fontFamily: "Times New Roman", color: 'white' }}>
+                        LUXMED Magánklinikák
+                    </Typography>
+                    <Typography variant="h4" fontWeight="bold" sx={{ fontFamily: "Kaushan Script", letterSpacing: 2, color: '#c6a472' }}>
+                        Szeretettel várjuk ott, ahol a gyógyulás kezdődik...
+                    </Typography>
+                </Box>
+
+                <Box sx={{ display: 'flex', flexDirection: 'row', gap: '20px', marginTop: '20px' }}>
+                    <Button
+                        variant="contained"
+                        onClick={() => navigate('/korhazak')}
+                        sx={{
+                            backgroundColor: '#9c7b48',
+                            color: 'white',
+                            borderRadius: '20px',
+                            padding: '10px 20px',
+                            fontWeight: 'bold',
+                            transition: '0.3s',
+                            '&:hover': {
+                                backgroundColor: '#c6a472'
+                            }
+                        }}
+                    >
+                        Kórházaink
+                    </Button>
+                    <Button
+                        variant="contained"
+                        onClick={() => navigate('/arak')}
+                        sx={{
+                            backgroundColor: '#9c7b48',
+                            color: 'white',
+                            borderRadius: '20px',
+                            padding: '10px 20px',
+                            fontWeight: 'bold',
+                            transition: '0.3s',
+                            '&:hover': {
+                                backgroundColor: '#c6a472'
+                            }
+                        }}
+                    >
+                        Szolgáltatásaink
+                    </Button>
+                    <Button
+                        variant="contained"
+                        onClick={() => navigate('/rolunk')}
+                        sx={{
+                            backgroundColor: '#9c7b48',
+                            color: 'white',
+                            borderRadius: '20px',
+                            padding: '10px 20px',
+                            fontWeight: 'bold',
+                            transition: '0.3s',
+                            '&:hover': {
+                                backgroundColor: '#c6a472'
+                            }
+                        }}
+                    >
+                        Történetünk
+                    </Button>
+                    <Button
+                        variant="contained"
+                        onClick={() => navigate('/kapcsolat')}
+                        sx={{
+                            backgroundColor: '#9c7b48',
+                            color: 'white',
+                            borderRadius: '20px',
+                            padding: '10px 20px',
+                            fontWeight: 'bold',
+                            transition: '0.3s',
+                            '&:hover': {
+                                backgroundColor: '#c6a472'
+                            }
+                        }}
+                    >
+                        Kapcsolatfelvétel
+                    </Button>
+                </Box>
+            </Box>
+        </>
+    );
 }
 
 export default ImageSlider;

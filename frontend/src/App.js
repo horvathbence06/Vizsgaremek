@@ -10,6 +10,8 @@ import IdopontGomb from './components/IdopontGomb';
 import IdopontFoglalas from './components/IdopontFoglalas';
 import Arlista from './components/Arlista';
 import Rolunk from "./components/Rolunk";
+import Bejelentkezes from './components/Bejelentkezes';
+import Admin from './components/Admin';
 
 
 
@@ -21,10 +23,8 @@ function AppContent() {
       <Navbar />
       <Routes>
         <Route path="/" element={
-          <Box sx={{ minHeight: "115vh", display: "flex", flexDirection: "column" }}>
-            <Box sx={{ height: "75vh", width: "100%" }}>
+          <Box sx={{ height: '100vh', display: "flex", flexDirection: "column" }}>
               <ImageSlider />
-            </Box>
           </Box>
         } />
         <Route path="/korhazak" element={<Korhazak />} />
@@ -32,9 +32,11 @@ function AppContent() {
         <Route path="/idopontfoglalas" element={<IdopontFoglalas />} />
         <Route path="/arak" element={<Arlista />} />
         <Route path="/rolunk" element={<Rolunk />} />
+        <Route path="/login" element={<Bejelentkezes />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
       <Footer />
-      {location.pathname !== "/idopontfoglalas" && <IdopontGomb />}
+      {location.pathname !== "/idopontfoglalas" && location.pathname !== "/login" && location.pathname !== "/admin" && <IdopontGomb />}
     </>
   );
 }

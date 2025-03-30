@@ -30,16 +30,26 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
     }
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        if (request.getMethod().equalsIgnoreCase(OPTIONS_HTTP_METHOD)) {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+            throws ServletException, IOException {
+
+        String requestURI = request.getRequestURI();
+
+        if (request.getMethod().equalsIgnoreCase(OPTIONS_HTTP_METHOD) || isPublicEndpoint(requestURI)) {
             response.setStatus(OK.value());
-        } else {
-            String authorizationHeader = request.getHeader(AUTHORIZATION);
-            if (authorizationHeader == null || !authorizationHeader.startsWith(TOKEN_PREFIX)) {
-                filterChain.doFilter(request, response);
-                return;
-            }
-            String token = authorizationHeader.substring(TOKEN_PREFIX.length());
+            filterChain.doFilter(request, response);
+            return;
+        }
+
+        String authorizationHeader = request.getHeader(AUTHORIZATION);
+        if (authorizationHeader == null || !authorizationHeader.startsWith(TOKEN_PREFIX)) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
+        String token = authorizationHeader.substring(TOKEN_PREFIX.length());
+
+        try {
             String username = jwtTokenProvider.getSubject(token);
             if (jwtTokenProvider.isTokenValid(username, token) && SecurityContextHolder.getContext().getAuthentication() == null) {
                 List<GrantedAuthority> authorities = jwtTokenProvider.getAuthorities(token);
@@ -48,7 +58,16 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
             } else {
                 SecurityContextHolder.clearContext();
             }
+        } catch (Exception e) {
+            System.out.println("Hibás JWT token: " + e.getMessage());
+            SecurityContextHolder.clearContext();
         }
+
         filterChain.doFilter(request, response);
     }
+
+    private boolean isPublicEndpoint(String url) {
+        return url.startsWith("/api/public") || url.equals("/api/test");
+    }
+
 }

@@ -11,7 +11,21 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://localhost:8080';
+
+axios.interceptors.request.use(
+    (config) => {
+        const token = localStorage.getItem("jwt_token");
+        if (token) {
+            config.headers['Authorization'] = `Bearer ${token}`;
+        }
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
+    }
+);

@@ -5,7 +5,9 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@mui/material": "^6.4.7",
+   "@mui/material": "^7.0.0",
+    "@mui/icons-material": "^7.0.0",
+    "@mui/system": "^7.0.0",
     "@mui/x-date-pickers": "^7.28.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -30,6 +32,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:8080",
   "eslintConfig": {
     "extends": [
       "react-app",
