@@ -1,8 +1,39 @@
 import { Box, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import ASZF from './legal/ASZF';
+import AdatkezelesiTajekoztato from './legal/AdatkezelesiTajekoztato';
+import BetegjogiTajekoztato from './legal/BetegjogiTajekoztato';
 
 function Footer() {
     const navigate = useNavigate();
+    const [openASZFModal, setOpenASZFModal] = useState(false);
+    const [openAdatkezelesModal, setOpenAdatkezelesModal] = useState(false);
+    const [openBetegjogiModal, setOpenBetegjogiModal] = useState(false);
+
+    const handleOpenASZFModal = () => {
+        setOpenASZFModal(true);
+    };
+
+    const handleCloseASZFModal = () => {
+        setOpenASZFModal(false);
+    };
+
+    const handleOpenAdatkezelesModal = () => {
+        setOpenAdatkezelesModal(true);
+    };
+
+    const handleCloseAdatkezelesModal = () => {
+        setOpenAdatkezelesModal(false);
+    };
+
+    const handleOpenBetegjogiModal = () => {
+        setOpenBetegjogiModal(true);
+    };
+
+    const handleCloseBetegjogiModal = () => {
+        setOpenBetegjogiModal(false);
+    };
 
     return (
         <Box
@@ -22,7 +53,7 @@ function Footer() {
                         position: relative;
                         text-decoration: none;
                         display: inline-block;
-                        color: inherit; /* <-- EZZEL MARAD A SZÍN */
+                        color: inherit; 
                     }
                     a::after, .animated-link::after {
                         content: "";
@@ -43,10 +74,18 @@ function Footer() {
             </style>
 
             <Box sx={{ color: '#9c7b48ff', flex: 1 }}>
-                <Typography variant='h3' sx={{ fontFamily: 'Kaushan Script', marginBottom: '30px' }}>Információk</Typography>
-                <Typography variant='h6'>Általános szerződési feltételek</Typography>
-                <Typography variant='h6'>Adatvédelmi tájékoztató</Typography>
-                <Typography variant='h6'>Betegjogi tájékoztató</Typography>
+                < Typography variant='h3' sx={{ fontFamily: 'Kaushan Script', marginBottom: '30px' }}>Információk</Typography>
+                <Typography variant='h6' className="animated-link" onClick={handleOpenASZFModal} style={{ cursor: 'pointer' }}>
+                    Általános szerződési feltételek
+                </Typography>
+                <br />
+                <Typography variant='h6' className="animated-link" onClick={handleOpenAdatkezelesModal} style={{ cursor: 'pointer' }}>
+                    Adatkezelési tájékoztató
+                </Typography>
+                <br />
+                <Typography variant='h6' className="animated-link" onClick={handleOpenBetegjogiModal} style={{ cursor: 'pointer' }}>
+                    Betegjogi tájékoztató
+                </Typography>
             </Box>
 
             <Box sx={{ flex: 1, display: "flex", justifyContent: "center", alignItems: "center" }}>
@@ -71,6 +110,10 @@ function Footer() {
                     </span>
                 </Typography>
             </Box>
+
+            <ASZF open={openASZFModal} onClose={handleCloseASZFModal} />
+            <AdatkezelesiTajekoztato open={openAdatkezelesModal} onClose={handleCloseAdatkezelesModal} />
+            <BetegjogiTajekoztato open={openBetegjogiModal} onClose={handleCloseBetegjogiModal} />
         </Box>
     );
 }
