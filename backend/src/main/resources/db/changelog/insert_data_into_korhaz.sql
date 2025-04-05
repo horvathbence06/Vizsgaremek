@@ -5,5 +5,5 @@ VALUES ('LuxMed Nyíregyháza', 'nyiregyhaza.png', '4400 Nyíregyháza, Szabolcs
        ('LuxMed Debrecen', 'debrecen.png', '4025 Debrecen, Piac utca 45.'),
        ('LuxMed Szeged', 'szeged.png', '6720 Szeged, Kárász utca 33.'),
        ('LuxMed Pécs', 'pecs.png', '7621 Pécs, Jókai utca 18.'),
-       ('LuxMed Győr', 'gyor.png', '9021 Győr, Arany János utca 10.'),
-       ('LuxMed Miskolc', 'miskolc.png', '3530 Miskolc, Szent István út 8.');
+       ('LuxMed Győr', 'gyor.png', '9021 Győr, Arany János utca 11.'),
+       ('LuxMed Miskolc', 'miskolc.png', '3530 Miskolc, Szent István utca 8.');

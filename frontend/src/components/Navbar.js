@@ -57,7 +57,7 @@ const Navbar = () => {
         
         <Box>
           <Link to="/" className="logo-link">
-            <img src="logo_transparent.png" alt="LuxMed Logo" style={{ height: '100px' }} />
+            <img src={`${process.env.PUBLIC_URL}/logo_transparent.png`} alt="LuxMed Logo" style={{ height: '100px' }} />
           </Link>
         </Box>
         

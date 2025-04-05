@@ -12,6 +12,7 @@ import Arlista from './components/Arlista';
 import Rolunk from "./components/Rolunk";
 import Bejelentkezes from './components/Bejelentkezes';
 import Admin from './components/Admin';
+import Korhaz from './components/Korhaz';
 
 
 
@@ -27,6 +28,7 @@ function AppContent() {
               <ImageSlider />
           </Box>
         } />
+        <Route path="/korhaz/:korhazId" element={<Korhaz />} />
         <Route path="/korhazak" element={<Korhazak />} />
         <Route path="/kapcsolat" element={<Kapcsolat />} />
         <Route path="/idopontfoglalas" element={<IdopontFoglalas />} />

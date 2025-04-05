@@ -89,7 +89,7 @@ function Footer() {
             </Box>
 
             <Box sx={{ flex: 1, display: "flex", justifyContent: "center", alignItems: "center" }}>
-                <img src="logo_transparent.png" alt="LuxMed Logo" style={{ width: "300px", height: "auto" }} />
+                <img src={`${process.env.PUBLIC_URL}/logo_transparent.png`} alt="LuxMed Logo" style={{ width: "300px", height: "auto" }} />
             </Box>
 
             <Box sx={{ textAlign: 'right', color: '#9c7b48ff', flex: 1 }}>
