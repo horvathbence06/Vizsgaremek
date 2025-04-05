@@ -60,10 +60,10 @@ function IdopontokKezelese() {
     };
 
     return (
-        <Box sx={{ textAlign: 'center', padding: 2 }}>
-            <Typography variant='h4' sx={{ fontWeight: 'bold' }}>Időpontok kezelése felület</Typography>
-            <Typography variant='h6'>Időpontok listázása és törlése</Typography>
-            <TableContainer component={Paper} sx={{ marginTop: 2 }}>
+        <Box sx={{ textAlign: 'center', padding: { xs: 2, md: 4 } }}>
+            <Typography variant='h4' sx={{ fontWeight: 'bold', fontSize: { xs: '1.5rem', md: '2rem' } }}>Időpontok kezelése felület</Typography>
+            <Typography variant='h6' sx={{ fontSize: { xs: '1rem', md: '1.25rem' } }}>Időpontok listázása és törlése</Typography>
+            <TableContainer component={Paper} sx={{ marginTop: 2, width: '100%' }}>
                 <Table>
                     <TableHead>
                         <TableRow sx={{ backgroundColor: '#1f1f1f', color: 'white' }}>
@@ -93,7 +93,7 @@ function IdopontokKezelese() {
                                 <TableCell>{idopont.foglaloEmailCim}</TableCell>
                                 <TableCell>{formatDate(idopont.ido)}</TableCell>
                             </TableRow>
- ))}
+                        ))}
                     </TableBody>
                 </Table>
             </TableContainer>

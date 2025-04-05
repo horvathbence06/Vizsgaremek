@@ -2,18 +2,18 @@ import { Dialog, DialogContent, Typography, DialogActions, Button } from '@mui/m
 
 function AdatkezelesiTajekoztato({ open, onClose }) {
     return (
-        <Dialog open={open} onClose={onClose}>
-            <DialogContent>
-                <Typography variant='h5' sx={{ fontWeight: 'bold' }}>ADATKEZELÉSI TÁJÉKOZTATÓ</Typography>
-                <Typography variant='h6' sx={{ fontWeight: 'bold' }}>LuxMed Kft.</Typography>
+        <Dialog open={open} onClose={onClose} fullWidth maxWidth="md">
+            <DialogContent sx={{ padding: { xs: "16px", md: "24px" } }}>
+                <Typography variant='h5' sx={{ fontWeight: 'bold', fontSize: { xs: '1.5rem', md: '1.8rem' } }}>ADATKEZELÉSI TÁJÉKOZTATÓ</Typography>
+                <Typography variant='h6' sx={{ fontWeight: 'bold', fontSize: { xs: '1.2rem', md: '1.5rem' } }}>LuxMed Kft.</Typography>
                 <Typography>Hatályos: 2025. április 1.-től visszavonásig</Typography>
-                <Typography sx={{ marginTop: 2 }}>
+                <Typography sx={{ marginTop: 2, fontSize: { xs: '0.9rem', md: '1rem' } }}>
                     <strong>1. Bevezető</strong>
                     <br />
                     A jelen Adatkezelési Tájékoztató célja, hogy a LuxMed Kft. tájékoztassa a Pácienseket és egyéb érintetteket a személyes adataik kezeléséről és védelméről.
                     A Szolgáltató elkötelezett a személyes adatok védelme mellett, és az adatkezelés során a hatályos jogszabályoknak, különösen az Európai Parlament és a Tanács (EU) 2016/679 rendeletének (GDPR) megfelelően jár el.
                 </Typography>
-                <Typography sx={{ marginTop: 2 }}>
+                <Typography sx={{ marginTop: 2, fontSize: { xs: '0.9rem', md: '1rem' } }}>
                     <strong>2. Az adatkezelés célja és jogalapja</strong>
                     <br />
                     A Szolgáltató a következő célokból kezel személyes adatokat:
@@ -36,7 +36,7 @@ function AdatkezelesiTajekoztato({ open, onClose }) {
                     <br />
                     Jogalap: GDPR 6. cikk (1) bekezdés c) pont (jogi kötelezettség teljesítése)
                 </Typography>
-                <Typography sx={{ marginTop: 2 }}>
+                <Typography sx={{ marginTop: 2, fontSize: { xs: '0.9rem', md: '1rem' } }}>
                     <strong>3. A kezelt adatok köre</strong>
                     <br />
                     A Szolgáltató az alábbi személyes adatokat kezelheti:
@@ -49,7 +49,7 @@ function AdatkezelesiTajekoztato({ open, onClose }) {
                     <br />
                     Kommunikációs adatok: e-mailek, telefonhívások rögzítése ügyfélszolgálati célból
                 </Typography>
-                <Typography sx={{ marginTop: 2 }}>
+                <Typography sx={{ marginTop: 2, fontSize: { xs: '0.9rem', md: '1rem' } }}>
                     <strong>4. Adattovábbítás és adatfeldolgozók</strong>
                     <br />
                     A Szolgáltató az alábbi esetekben továbbíthatja az adatokat harmadik felek számára:
@@ -62,7 +62,7 @@ function AdatkezelesiTajekoztato({ open, onClose }) {
                     <br />
                     Az adattovábbítás minden esetben a hatályos adatvédelmi szabályok betartásával történik.
                 </Typography>
-                <Typography sx={{ marginTop: 2 }}>
+                <Typography sx={{ marginTop: 2, fontSize: { xs: '0.9rem', md: '1rem' } }}>
                     <strong>5. Adatmegőrzési időtartam</strong>
                     <br />
                     A személyes adatokat a Szolgáltató az alábbi időtartamokig őrzi meg:
@@ -73,7 +73,7 @@ function AdatkezelesiTajekoztato({ open, onClose }) {
                     <br />
                     Kapcsolattartási és időpontfoglalási adatok: 5 év
                 </Typography>
-                <Typography sx={{ marginTop: 2 }}>
+                <Typography sx={{ marginTop: 2, fontSize: { xs: '0.9rem', md: '1rem' } }}>
                     <strong>6. Az érintettek jogai</strong>
                     <br />
                     A Páciens jogosult:
@@ -92,7 +92,7 @@ function AdatkezelesiTajekoztato({ open, onClose }) {
                     <br />
                     Kérvényeket a luxmedinformacio@gmail.com címen lehet benyújtani. A Szolgáltató a kéréseket 30 napon belül elbírálja.
                 </Typography>
-                <Typography sx={{ marginTop: 2 }}>
+                <Typography sx={{ marginTop: 2, fontSize: { xs: '0.9rem', md: '1rem' } }}>
                     <strong>7. Adatbiztonsági intézkedések</strong>
                     <br />
                     A Szolgáltató technikai és szervezési intézkedéseket alkalmaz az adatok védelme érdekében, így különösen:
@@ -103,7 +103,7 @@ function AdatkezelesiTajekoztato({ open, onClose }) {
                     <br />
                     Rendszeres biztonsági mentések
                 </Typography>
-                <Typography sx={{ marginTop: 2 }}>
+                <Typography sx={{ marginTop: 2, fontSize: { xs: '0.9rem', md: '1rem' } }}>
                     <strong>8. Jogorvoslati lehetőségek</strong>
                     <br />
                     Ha a Páciens úgy érzi, hogy az adatkezelés nem megfelelő, panaszt tehet:
@@ -116,14 +116,14 @@ function AdatkezelesiTajekoztato({ open, onClose }) {
                     <br />
                     Weboldal: www.naih.hu
                 </Typography>
-                <Typography sx={{ marginTop: 2 }}>
+                <Typography sx={{ marginTop: 2, fontSize: { xs: '0.9rem', md: '1rem' } }}>
                     <strong>9. Záró rendelkezések</strong>
                     <br />
                     9.1. A jelen Adatkezelési Tájékoztató hatályba lépésének napja: 2025. április 1.
                     <br />
                     9.2. A Szolgáltató fenntartja a jogot, hogy az adatkezelési tájékoztatót szükség esetén módosítsa. A módosításokat a LuxMed Kft. honlapján közzéteszi.
                 </Typography>
-                <Typography sx={{ marginTop: 2 }}>
+                <Typography sx={{ marginTop: 2, fontSize: { xs: '0.9rem', md: '1rem' } }}>
                     Kelt: 2025. április 1.
                     <br />
                     LuxMed Kft.

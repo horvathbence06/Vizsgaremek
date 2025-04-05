@@ -1,14 +1,13 @@
+import './ImageSlider.module.css';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Box, Typography, Button } from '@mui/material';
-import './ImageSlider.module.css';
 
 function ImageSlider() {
     const startingImages = ["/1.jpg", "/2.png", "/3.png", "/4.png", "/5.png"];
     const [currentIndex, setCurrentIndex] = useState(0);
-
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -20,7 +19,7 @@ function ImageSlider() {
 
     return (
         <>
-            <Box>
+            <Box sx={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden' }}>
                 <motion.img
                     key={currentIndex}
                     src={startingImages[currentIndex]}
@@ -33,7 +32,7 @@ function ImageSlider() {
                         top: 0,
                         left: 0,
                         width: '100%',
-                        height: '100vh',
+                        height: '100%',
                         objectFit: 'cover',
                         zIndex: -2
                     }}
@@ -68,16 +67,36 @@ function ImageSlider() {
                     gap: 3
                 }}
             >
-                <Box sx={{ backgroundColor: 'rgba(0,0,0,0.7)', padding: '20px', borderRadius: '12px' }}>
-                    <Typography variant="h1" fontWeight="bold" sx={{ fontFamily: "Times New Roman", color: 'white' }}>
+                <Box
+                    sx={{
+                        backgroundColor: 'rgba(0,0,0,0.7)',
+                        padding: { xs: '10px', md: '30px 60px' },
+                        borderRadius: '12px',
+                        maxWidth: { xs: '90%', md: '70%', lg: '60%' },
+                    }}
+                >
+                    <Typography
+                        variant="h2"
+                        fontWeight="bold"
+                        sx={{ fontFamily: "Times New Roman", color: 'white', fontSize: { xs: '2rem', md: '3rem', lg: '4rem' } }}
+                    >
                         LUXMED Magánklinikák
                     </Typography>
-                    <Typography variant="h4" fontWeight="bold" sx={{ fontFamily: "Kaushan Script", letterSpacing: 2, color: '#c6a472' }}>
+                    <Typography
+                        variant="h5"
+                        fontWeight="bold"
+                        sx={{
+                            fontFamily: "Kaushan Script",
+                            letterSpacing: 2,
+                            color: '#c6a472',
+                            fontSize: { xs: '1.2rem', md: '1.5rem', lg: '2rem' }
+                        }}
+                    >
                         Szeretettel várjuk ott, ahol a gyógyulás kezdődik...
                     </Typography>
                 </Box>
 
-                <Box sx={{ display: 'flex', flexDirection: 'row', gap: '20px', marginTop: '20px' }}>
+                <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: '20px', marginTop: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
                     <Button
                         variant="contained"
                         onClick={() => navigate('/korhazak')}

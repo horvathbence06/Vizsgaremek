@@ -10,10 +10,10 @@ function SikeresIdopontfoglalas() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 minHeight: '100vh',
-                padding: '20px',
+                padding: { xs: '20px', md: '40px' }, 
             }}
         >
-            <Typography variant="h5" sx={{ color: "#0d0d0dff", marginBottom: "20px", fontWeight: "bold" }}>
+            <Typography variant="h5" sx={{ color: "#0d0d0dff", marginBottom: "20px", fontWeight: "bold", fontSize: { xs: '1.5rem', md: '2rem' } }}>
                 Sikeres időpontfoglalás!
             </Typography>
             <Link to="/">
@@ -24,6 +24,8 @@ function SikeresIdopontfoglalas() {
                         "&:hover": {
                             backgroundColor: "#7a5a30",
                         },
+                        padding: { xs: '10px', md: '15px' }, 
+                        fontSize: { xs: '0.9rem', md: '1rem' } 
                     }}
                 >
                     VISSZA A FŐOLDALRA

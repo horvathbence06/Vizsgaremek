@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Typography, List, ListItem, ListItemText } from '@mui/material';
+import { Box, Typography, List, ListItem, ListItemText, useMediaQuery } from '@mui/material';
 import IdopontokKezelese from './administrative/IdopontokKezelese';
 import KorhazakKezelese from './administrative/KorhazakKezelese';
 import UjKorhaz from './administrative/UjKorhaz';
@@ -12,6 +12,7 @@ import UjSzolgaltatas from './administrative/UjSzolgaltatas';
 
 function Admin() {
     const [selectedMenu, setSelectedMenu] = useState('');
+    const isMobile = useMediaQuery('(max-width:600px)'); 
 
     const menuItems = [
         { label: "Időpontok kezelése", value: "idopontok" },
@@ -46,7 +47,11 @@ function Admin() {
             case 'ujSzolgaltatas':
                 return <UjSzolgaltatas />;
             default:
-                return <Typography variant='h4'>Üdvözlünk az admin felületen! Kérlek válassz egy menüpontot!</Typography>;
+                return (
+                    <Typography variant='h4' sx={{ fontSize: { xs: '1.5rem', md: '2rem' } }}>
+                        Üdvözlünk az admin felületen! Kérlek válassz egy menüpontot!
+                    </Typography>
+                );
         }
     };
 
@@ -56,19 +61,21 @@ function Admin() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            background: "linear-gradient(to bottom right, #9c7b48ff, #f5f5f5)"
+            background: "linear-gradient(to bottom right, #9c7b48ff, #f5f5f5)",
+            padding: { xs: 2, md: 0 } 
         }}>
             <Box sx={{
-                height: '70vh',
-                width: '110vh',
+                height: isMobile ? 'auto' : '70vh', 
+                width: isMobile ? '100%' : '110vh', 
                 display: "flex",
+                flexDirection: isMobile ? 'column' : 'row', 
                 borderRadius: 3,
                 boxShadow: 4,
                 overflow: 'hidden',
                 backgroundColor: 'white'
             }}>
                 <Box sx={{
-                    width: '28%',
+                    width: isMobile ? '100%' : '28%', 
                     backgroundColor: '#1f1f1f',
                     color: 'white',
                     display: 'flex',
@@ -78,46 +85,80 @@ function Admin() {
                     <Typography variant="h6" sx={{
                         marginBottom: 3,
                         fontFamily: 'Kaushan Script',
-                        color: '#c69b6d'
+                        color: '#c69b6d',
+                        textAlign: isMobile ? 'center' : 'left' 
                     }}>
                         LuxMed Admin
                     </Typography>
-        
-                    <List sx={{ gap: 1, display: 'flex', flexDirection: 'column' }}>
-                        {menuItems.map((item) => (
-                            <ListItem
-                            key={item.value}
-                            onClick={() => setSelectedMenu(item.value)}
-                            className={selectedMenu !== item.value ? "animated-link" : ""}
-                            sx={{
-                                backgroundColor: selectedMenu === item.value ? '#f5f5f5' : 'transparent',
-                                color: selectedMenu === item.value ? '#1f1f1f' : 'white',
-                                borderRadius: 1,
-                                transition: '0.2s',
-                                '&:hover': {
-                                    backgroundColor: selectedMenu === item.value ? '#f5f5f5' : 'rgba(255,255,255,0.1)',
-                                }
-                            }}
-                        >
-                            <ListItemText primary={item.label} />
-                        </ListItem>                        
-                        ))}
-                    </List>
+
+                    {isMobile ? (
+                        <Box sx={{
+                            overflowX: 'auto', 
+                            whiteSpace: 'nowrap', 
+                            padding: '0 10px' 
+                        }}>
+                            <List sx={{ display: 'inline-flex', gap: 1 }}>
+                                {menuItems.map((item) => (
+                                    <ListItem
+                                        key={item.value}
+                                        onClick={() => setSelectedMenu(item.value)}
+                                        className={selectedMenu !== item.value ? "animated-link" : ""}
+                                        sx={{
+                                            backgroundColor: selectedMenu === item.value ? '#f5f5f5' : 'transparent',
+                                            color: selectedMenu === item.value ? '#1f1f1f' : 'white',
+                                            borderRadius: 1,
+                                            transition: '0.2s',
+                                            '&:hover': {
+                                                backgroundColor: selectedMenu === item.value ? '#f5f5f5' : 'rgba(255,255,255,0.1)',
+                                            }
+                                        }}
+                                    >
+                                        <ListItemText primary={item.label} />
+                                    </ListItem>
+                                ))}
+                            </List>
+                        </Box>
+                    ) : (
+                        <List sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                            {menuItems.map((item) => (
+                                <ListItem
+                                    key={item.value}
+                                    onClick={() => setSelectedMenu(item.value)}
+                                    className={selectedMenu !== item.value ? "animated-link" : ""}
+                                    sx={{
+                                        backgroundColor: selectedMenu === item.value ? '#f5f5f5' : 'transparent',
+                                        color: selectedMenu === item.value ? '#1f1f1f' : 'white',
+                                        borderRadius: 1,
+                                        transition: '0.2s',
+                                        '&:hover': {
+                                            backgroundColor: selectedMenu === item.value ? '#f5f5f5' : 'rgba(255,255,255,0.1)',
+                                        }
+                                    }}
+                                >
+                                    <ListItemText primary={item.label} />
+                                </ListItem>
+                            ))}
+                        </List>
+                    )}
                 </Box>
-        
-                <Box sx={{
-                    width: '72%',
-                    padding: 3,
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    backgroundColor: '#ffffff'
-                }}>
-                    {renderContent()}
+
+                <Box
+                    sx={{
+                        width: isMobile ? '100%' : '72%',
+                        padding: 3,
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        backgroundColor: '#ffffff',
+                        height: '100%',
+                    }}
+                >
+                    <Box sx={{ textAlign: 'center', width: '100%', padding: { xs: 1, md: 3 } }}>
+                        {renderContent()}
+                    </Box>
                 </Box>
             </Box>
         </Box>
-        
     );
 }
 

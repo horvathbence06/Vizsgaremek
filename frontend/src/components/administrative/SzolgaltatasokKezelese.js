@@ -97,7 +97,6 @@ function SzolgaltatasokKezelese() {
             });
     };
 
-    // Formázó függvény az ár megjelenítéséhez
     const formatPrice = (price) => {
         return new Intl.NumberFormat('hu-HU', {
             style: 'currency',

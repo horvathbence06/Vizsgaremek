@@ -48,19 +48,19 @@ function Kapcsolat() {
             justifyContent: "center",
             alignItems: "center",
             background: "linear-gradient(to bottom right, #9c7b48ff, white)",
-            padding: "50px 0",
+            padding: { xs: "20px", md: "50px" },
           }}
         >
           <Box
             sx={{
-              width: "60%",
+              width: { xs: "90%", md: "60%" },
               backgroundColor: "rgba(13, 13, 13, 0.9)",
-              padding: "40px",
+              padding: { xs: "20px", md: "40px" },
               borderRadius: "10px",
               color: "#9c7b48ff",
             }}
           >
-            <Typography variant="h3" sx={{ fontFamily: "Kaushan Script", textAlign: "center", color: "#9c7b48ff", marginBottom: "20px" }}>
+            <Typography variant="h3" sx={{ fontFamily: "Kaushan Script", textAlign: "center", color: "#9c7b48ff", marginBottom: "20px", fontSize: { xs: "1.8rem", md: "2.5rem" } }}>
               Kapcsolatfelvétel
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column", gap: "15px" }}>
@@ -77,7 +77,7 @@ function Kapcsolat() {
                 fullWidth
                 sx={{ backgroundColor: "#fff", borderRadius: "5px" }}
               />
-              <Button type="submit" variant="contained" sx={{ backgroundColor: "#9c7b48ff", color: "white", fontWeight: "bold", width: '20%', alignSelf: 'center' }}>
+              <Button type="submit" variant="contained" sx={{ backgroundColor: "#9c7b48ff", color: "white", fontWeight: "bold", width: { xs: "100%", md: "20%" }, alignSelf: 'center' }}>
                 Üzenet küldése
               </Button>
             </Box>

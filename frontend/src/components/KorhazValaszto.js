@@ -16,9 +16,10 @@ function KorhazValaszto() {
                 gap: "20px",
                 maxWidth: "650px",
                 width: "100%",
+                padding: { xs: "20px", md: "0" }, 
             }}
         >
-            <Typography variant="h4" sx={{ color: "#0d0d0dff", marginBottom: "10px", fontWeight: "bold" }}>
+            <Typography variant="h4" sx={{ color: "#0d0d0dff", marginBottom: "10px", fontWeight: "bold", fontSize: { xs: "1.5rem", md: "2rem" } }}>
                 Válasszon egy kórházat:
             </Typography>
             {korhazak.map((korhaz) => (
@@ -26,8 +27,8 @@ function KorhazValaszto() {
                     key={korhaz.korhazId}
                     onClick={() => setSelectedKorhaz(korhaz)}
                     sx={{
-                        padding: "15px",
-                        width: "calc(50% - 5px)",
+                        padding: { xs: "10px", md: "15px" }, 
+                        width: { xs: "100%", md: "calc(50% - 5px)" }, 
                         maxWidth: "300px",
                         backgroundColor: "#0d0d0dff",
                         color: "#9c7b48ff",
@@ -39,6 +40,7 @@ function KorhazValaszto() {
                         "&:hover": {
                             backgroundColor: "#1a1a1a",
                         },
+                        fontSize: { xs: "0.9rem", md: "1rem" }, 
                     }}
                 >
                     <Typography variant="h5">{korhaz.korhazNev}</Typography>
@@ -52,6 +54,8 @@ function KorhazValaszto() {
                         "&:hover": {
                             backgroundColor: "#7a5a30",
                         },
+                        padding: { xs: "10px", md: "15px" }, 
+                        fontSize: { xs: "0.9rem", md: "1rem" }, 
                     }}
                 >
                     VISSZA A FŐOLDALRA

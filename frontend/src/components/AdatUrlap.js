@@ -17,7 +17,6 @@ function AdatUrlap() {
         selectedTime,
         setSelectedTime,
         setSelectedOrvos,
-        selectedDateTime,
     } = useContext(IdopontContext);
 
     const handleSubmit = () => {
@@ -53,15 +52,16 @@ function AdatUrlap() {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                padding: '20px',
+                padding: { xs: '10px', md: '20px' }, 
                 background: 'white',
                 borderRadius: '10px',
                 boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
                 maxWidth: '400px',
+                width: '100%', 
                 margin: 'auto',
             }}
         >
-            <Typography variant="h5" sx={{ marginBottom: '20px', fontWeight: 'bold' }}>
+            <Typography variant="h5" sx={{ marginBottom: '20px', fontWeight: 'bold', fontSize: { xs: '1.5rem', md: '1.8rem' } }}>
                 Kérjük, adja meg adatait:
             </Typography>
             <FormControl fullWidth margin="normal">
@@ -102,6 +102,8 @@ function AdatUrlap() {
                             backgroundColor: '#7a5a30',
                             color: 'black',
                         },
+                        padding: { xs: '8px', md: '10px' }, 
+                        fontSize: { xs: '0.9rem', md: '1rem' }
                     }}
                 >
                     IDŐPONT FOGLALÁSA
@@ -116,6 +118,8 @@ function AdatUrlap() {
                         backgroundColor: '#7a5a30',
                         color: 'black',
                     },
+                    padding: { xs: '8px', md: '10px' }, 
+                    fontSize: { xs: '0.9rem', md: '1rem' } 
                 }}
                 onClick={() => setSelectedTime(null)}>
                 Vissza
@@ -128,7 +132,7 @@ function AdatUrlap() {
                         top: '50%',
                         left: '50%',
                         transform: 'translate(-50%, -50%)',
-                        width: 400,
+                        width: { xs: '90%', md: 400 }, 
                         bgcolor: 'white',
                         border: '2px solid #000',
                         boxShadow: 24,

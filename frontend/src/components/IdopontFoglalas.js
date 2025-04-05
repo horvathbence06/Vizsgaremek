@@ -18,7 +18,7 @@ function IdopontFoglalas() {
     selectedOrvos,
     sikeresFoglalas,
     selectedTime,
-    setSelectedTime // Itt van a setSelectedTime
+    setSelectedTime 
   } = useContext(IdopontContext);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ function IdopontFoglalas() {
         display: "flex",
         flexDirection: "column",
         background: "linear-gradient(to bottom right, #9c7b48ff, white)",
-        padding: "20px",
+        padding: { xs: "20px", md: "40px" },
         alignItems: "center",
         justifyContent: "center",
       }}

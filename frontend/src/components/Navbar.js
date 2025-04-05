@@ -1,8 +1,10 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Box } from '@mui/material';
+import { AppBar, Toolbar, Typography, Box, useMediaQuery } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down('md'));
+
   return (
     <AppBar position='fixed' sx={{ backgroundColor: 'rgba(13, 13, 13, 0.8)', padding: '10px 0' }}>
       <style>
@@ -28,12 +30,10 @@ const Navbar = () => {
             transform: translateX(-50%) scaleX(1);
           }
 
-          /* Csak a logo-ra ne legyen underline */
           .logo-link::after {
             display: none !important;
           }
 
-          /* Logo animáció */
           .logo-link img {
             transition: transform 0.4s ease;
           }
@@ -44,31 +44,35 @@ const Navbar = () => {
         `}
       </style>
 
-      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 100px' }}>
+      <Toolbar sx={{ display: 'flex', justifyContent: isMobile ? 'center' : 'space-between', alignItems: 'center', padding: '0 20px' }}>
         
-        <Box sx={{ display: 'flex', gap: '60px', color: '#9c7b48ff', marginLeft: '60px' }}>
-          <Typography variant="h5" sx={{ cursor: 'pointer', fontFamily: 'Kaushan Script' }}>
-            <Link to="/korhazak">Kórházak</Link>
-          </Typography>
-          <Typography variant="h5" sx={{ cursor: 'pointer', fontFamily: 'Kaushan Script' }}>
-            <Link to="/arak">Árlista</Link>
-          </Typography>
-        </Box>
+        {!isMobile && (
+          <Box sx={{ display: 'flex', gap: '20px', color: '#9c7b48ff', flexGrow: 1, justifyContent: 'center' }}>
+            <Typography variant="h6" sx={{ cursor: 'pointer', fontFamily: 'Kaushan Script', minWidth: '120px', textAlign: 'center' }}>
+              <Link to="/korhazak">Kórházak</Link>
+            </Typography>
+            <Typography variant="h6" sx={{ cursor: 'pointer', fontFamily: 'Kaushan Script', minWidth: '120px', textAlign: 'center' }}>
+              <Link to="/arak">Árlista</Link>
+            </Typography>
+          </Box>
+        )}
         
         <Box>
           <Link to="/" className="logo-link">
-            <img src={`${process.env.PUBLIC_URL}/logo_transparent.png`} alt="LuxMed Logo" style={{ height: '100px' }} />
+            <img src={`${process.env.PUBLIC_URL}/logo_transparent.png`} alt="LuxMed Logo" style={{ height: isMobile ? '80px' : '100px' }} />
           </Link>
         </Box>
         
-        <Box sx={{ display: 'flex', gap: '60px', color: '#9c7b48ff', marginRight: '60px' }}>
-          <Typography variant="h5" sx={{ cursor: 'pointer', fontFamily: 'Kaushan Script' }}>
-            <Link to="/rolunk">Rólunk</Link>
-          </Typography>
-          <Typography variant="h5" sx={{ cursor: 'pointer', fontFamily: 'Kaushan Script' }}>
-            <Link to="/kapcsolat">Kapcsolat</Link>
-          </Typography>
-        </Box>
+        {!isMobile && (
+          <Box sx={{ display: 'flex', gap: '20px', color: '#9c7b48ff', flexGrow: 1, justifyContent: 'center' }}>
+            <Typography variant="h6" sx={{ cursor: 'pointer', fontFamily: 'Kaushan Script', minWidth: '120px', textAlign: 'center' }}>
+              <Link to="/rolunk">Rólunk</Link>
+            </Typography>
+            <Typography variant="h6" sx={{ cursor: 'pointer', fontFamily: 'Kaushan Script', minWidth: '120px', textAlign: 'center' }}>
+              <Link to="/kapcsolat">Kapcsolat</Link>
+            </Typography>
+          </Box>
+        )}
       </Toolbar>
     </AppBar>
   );

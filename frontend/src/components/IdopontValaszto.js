@@ -43,6 +43,7 @@ function IdopontValaszto() {
                 alignItems: "center",
                 justifyContent: "center",
                 margin: "20px auto",
+                width: { xs: "90%", md: "60%" }, 
             }}
         >
             <Calendar
@@ -76,7 +77,7 @@ function IdopontValaszto() {
                         key={time}
                         onClick={() => setSelectedTime(time)}
                         sx={{
-                            padding: "10px",
+                            padding: { xs: "8px", md: "10px" }, 
                             backgroundColor: "darkgreen",
                             color: "white",
                             fontWeight: "bold",
@@ -84,6 +85,7 @@ function IdopontValaszto() {
                             textAlign: "center",
                             textTransform: "none",
                             margin: "5px",
+                            fontSize: { xs: "0.9rem", md: "1rem" }, 
                         }}
                     >
                         {time}
@@ -99,6 +101,8 @@ function IdopontValaszto() {
                         backgroundColor: '#7a5a30',
                         color: 'black',
                     },
+                    padding: { xs: "8px", md: "10px" }, 
+                    fontSize: { xs: "0.9rem", md: "1rem" }, 
                 }}
                 onClick={() => setSelectedOrvos(null)}>Vissza</Button>
         </Box>

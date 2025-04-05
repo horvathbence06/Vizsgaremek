@@ -11,40 +11,25 @@ function Footer() {
     const [openAdatkezelesModal, setOpenAdatkezelesModal] = useState(false);
     const [openBetegjogiModal, setOpenBetegjogiModal] = useState(false);
 
-    const handleOpenASZFModal = () => {
-        setOpenASZFModal(true);
-    };
-
-    const handleCloseASZFModal = () => {
-        setOpenASZFModal(false);
-    };
-
-    const handleOpenAdatkezelesModal = () => {
-        setOpenAdatkezelesModal(true);
-    };
-
-    const handleCloseAdatkezelesModal = () => {
-        setOpenAdatkezelesModal(false);
-    };
-
-    const handleOpenBetegjogiModal = () => {
-        setOpenBetegjogiModal(true);
-    };
-
-    const handleCloseBetegjogiModal = () => {
-        setOpenBetegjogiModal(false);
-    };
+    const handleOpenASZFModal = () => setOpenASZFModal(true);
+    const handleCloseASZFModal = () => setOpenASZFModal(false);
+    const handleOpenAdatkezelesModal = () => setOpenAdatkezelesModal(true);
+    const handleCloseAdatkezelesModal = () => setOpenAdatkezelesModal(false);
+    const handleOpenBetegjogiModal = () => setOpenBetegjogiModal(true);
+    const handleCloseBetegjogiModal = () => setOpenBetegjogiModal(false);
 
     return (
         <Box
             sx={{
                 marginTop: "auto",
-                height: "30vh",
+                height: "auto",
                 backgroundColor: "#0d0d0dff",
                 display: "flex",
+                flexDirection: { xs: 'column', md: 'row' }, 
                 justifyContent: "space-between",
                 alignItems: "center",
-                padding: "0 40px"
+                padding: { xs: "10px 20px", md: "40px 60px" }, 
+                textAlign: { xs: 'center', md: 'left' } 
             }}
         >
             <style>
@@ -73,34 +58,34 @@ function Footer() {
                 `}
             </style>
 
-            <Box sx={{ color: '#9c7b48ff', flex: 1 }}>
-                < Typography variant='h3' sx={{ fontFamily: 'Kaushan Script', marginBottom: '30px' }}>Információk</Typography>
-                <Typography variant='h6' className="animated-link" onClick={handleOpenASZFModal} style={{ cursor: 'pointer' }}>
+            <Box sx={{ textAlign: 'center', color: '#9c7b48ff', flex: 1, mb: { xs: 2, md: 0 } }}>
+                <Typography variant='h5' sx={{ fontFamily: 'Kaushan Script', marginBottom: '20px', fontSize: '48px' }}>Információk</Typography> 
+                <Typography variant='h6' className="animated-link" onClick={handleOpenASZFModal} style={{ cursor: 'pointer', fontSize: '18px' }}>
                     Általános szerződési feltételek
                 </Typography>
                 <br />
-                <Typography variant='h6' className="animated-link" onClick={handleOpenAdatkezelesModal} style={{ cursor: 'pointer' }}>
+                <Typography variant='h6' className="animated-link" onClick={handleOpenAdatkezelesModal} style={{ cursor: 'pointer', fontSize: '18px' }}>
                     Adatkezelési tájékoztató
                 </Typography>
                 <br />
-                <Typography variant='h6' className="animated-link" onClick={handleOpenBetegjogiModal} style={{ cursor: 'pointer' }}>
+                <Typography variant='h6' className="animated-link" onClick={handleOpenBetegjogiModal} style={{ cursor: 'pointer', fontSize: '18px' }}>
                     Betegjogi tájékoztató
                 </Typography>
             </Box>
 
-            <Box sx={{ flex: 1, display: "flex", justifyContent: "center", alignItems: "center" }}>
-                <img src={`${process.env.PUBLIC_URL}/logo_transparent.png`} alt="LuxMed Logo" style={{ width: "300px", height: "auto" }} />
+            <Box sx={{ flex: 1, display: { xs: 'none', md: 'flex' }, justifyContent: "center", alignItems: "center", mb: { xs: 2, md: 0 } }}>
+                <img src={`${process.env.PUBLIC_URL}/logo_transparent.png`} alt="LuxMed Logo" style={{ width: "200px", height: "auto" }} />
             </Box>
 
-            <Box sx={{ textAlign: 'right', color: '#9c7b48ff', flex: 1 }}>
-                <Typography variant='h3' sx={{ fontFamily: 'Kaushan Script', marginBottom: '30px' }}>LuxMed Egészségügyi Kft.</Typography>
-                <Typography variant='h6'>
+            <Box sx={{ textAlign: 'center', color: '#9c7b48ff', flex: 1, mb: { xs: 2, md: 0 } }}>
+                <Typography variant='h5' sx={{ fontFamily: 'Kaushan Script', marginBottom: '20px', fontSize: '48px' }}>LuxMed Egészségügyi Kft.</Typography> 
+                <Typography variant='body1' sx={{ fontSize: '18px' }}>
                     Tel: <a href='tel:+36203676774' className="animated-link">+36 20 367 6774</a>
                 </Typography>
-                <Typography variant='h6'>
+                <Typography variant='body1' sx={{ fontSize: '18px' }}>
                     E-mail: <a href='mailto:luxmedinformacio@gmail.com' className="animated-link">luxmedinformacio@gmail.com</a>
                 </Typography>
-                <Typography variant='h6'>
+                <Typography variant='body1' sx={{ fontSize: '18px' }}>
                     <span
                         className="animated-link"
                         onClick={() => navigate('/login')}

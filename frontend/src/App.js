@@ -13,14 +13,19 @@ import Rolunk from "./components/Rolunk";
 import Bejelentkezes from './components/Bejelentkezes';
 import Admin from './components/Admin';
 import Korhaz from './components/Korhaz';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 
 function AppContent() {
   const location = useLocation(); 
+  const theme = createTheme({
+
+  });
 
   return (
     <>
+    <ThemeProvider theme={theme}>
       <Navbar />
       <Routes>
         <Route path="/" element={
@@ -39,6 +44,7 @@ function AppContent() {
       </Routes>
       <Footer />
       {location.pathname !== "/idopontfoglalas" && location.pathname !== "/login" && location.pathname !== "/admin" && <IdopontGomb />}
+      </ThemeProvider>
     </>
   );
 }
