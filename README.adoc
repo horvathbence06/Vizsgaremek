@@ -1,0 +1,7 @@
+= Fejlesztői dokumentáció - LuxMed Kft. weboldala
+
+link:dokumentáció/fejlesztoi/requirements.adoc[Követelmény specifikáció]
+
+Fejlesztői dokumentáció - rendszerterv
+
+Felhasználói dokumentáció
