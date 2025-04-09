@@ -139,7 +139,7 @@ function ImageSlider() {
                             color: 'white',
                             borderRadius: '20px',
                             padding: '10px 20px',
-                            fontWeight: 'bold',
+                            fontWeight: 'bold   ',
                             transition: '0.3s',
                             '&:hover': {
                                 backgroundColor: '#c6a472'

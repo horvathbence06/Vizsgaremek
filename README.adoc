@@ -1,7 +1,9 @@
-= Fejlesztői dokumentáció - LuxMed Kft. weboldala
+= Alkalmazás dokumentáció - LuxMed Kft. weboldala
 
-link:dokumentáció/fejlesztoi/requirements.adoc[Követelmény specifikáció]
+link:dokumentáció/fejlesztoi/kovetelmenyek.adoc[Követelmény specifikáció]
 
-Fejlesztői dokumentáció - rendszerterv
+link:dokumentáció/fejlesztoi/rendszerterv.adoc[Fejlesztői dokumentáció - rendszerterv]
 
 Felhasználói dokumentáció
+
+Indítási útmutató
