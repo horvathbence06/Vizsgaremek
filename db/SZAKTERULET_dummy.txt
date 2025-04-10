@@ -1,0 +1,24 @@
+1;Országos Főigazgató
+2;Kórházigazgató
+3;Belgyógyászat
+4;Bőrgyógyászat;
+5;Dietetika
+6;Endrokrinológia
+7;Érsebészet
+8;Fül-Orr-Gégészet
+9;Gasztroenterológia
+10;Gyermeksebészet
+11;Hematológia
+12;Idegsebészet
+13;Kardiológia
+14;Kézsebészet
+15;Neurológia
+16;Nőgyógyászat
+17;Ortopédia
+18;Plasztikai Sebészet
+19;Pulmonológia
+20;Reumatológia
+21;Sebészet
+22;Szemészet
+23;Szülészet-nőgyógyászat
+24;Urológia

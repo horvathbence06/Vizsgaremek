@@ -1,0 +1,2 @@
+INSERT INTO Felhasznalo(`felhasznalo_nev`, `jelszo`, `teljes_nev`, `telefonszam`, `email_cim`) VALUES
+('SupremeAdmin', '$2a$12$aCq6mYVe9Bd4Tn3pKoXqTe03Bb3GTdcxHtYXT3ElpH.puWtdCbM8e', 'Rendszeradminisztrátor', '+36203676774', 'luxmedinformacio@gmail.com');

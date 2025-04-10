@@ -1,0 +1,18 @@
+INSERT INTO Allocate (felhasznalo_id, permission_id)
+VALUES (1, 'GET_FELHASZNALO'),
+       (1, 'LIST_FELHASZNALO'),
+       (1, 'CREATE_FELHASZNALO'),
+       (1, 'UPDATE_FELHASZNALO'),
+       (1, 'DELETE_FELHASZNALO'),
+       (1, 'DELETE_IDOPONT'),
+       (1, 'CREATE_KORHAZ'),
+       (1, 'UPDATE_KORHAZ'),
+       (1, 'DELETE_KORHAZ'),
+       (1, 'CREATE_ORVOS'),
+       (1, 'UPDATE_ORVOS'),
+       (1, 'DELETE_ORVOS'),
+       (1, 'CREATE_SZAKTERULET'),
+       (1, 'DELETE_SZAKTERULET'),
+       (1, 'CREATE_SZOLGALTATAS'),
+       (1, 'UPDATE_SZOLGALTATAS'),
+       (1, 'DELETE_SZOLGALTATAS');
