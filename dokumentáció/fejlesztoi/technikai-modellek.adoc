@@ -1,0 +1,11 @@
+= Technikai modellek
+
+link:technikai-modellek/idopontokKezeleseTechnikaiModell.adoc[Időpontok kezelése]
+
+link:technikai-modellek/korhazakKezeleseTechnikaiModell.adoc[Kórházak kezelése]
+
+link:technikai-modellek/orvosokKezeleseTechnikaiModell.adoc[Orvosok kezelése]
+
+link:technikai-modellek/szakteruletekKezeleseTechnikaiModell.adoc[Szakterületek kezelése]
+
+link:technikai-modellek/szolgaltatasokKezeleseTechnikaiModell.adoc[Szolgáltatások kezelése]

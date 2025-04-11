@@ -44,7 +44,7 @@ image::../static/UC_diagrams/korhazakKezeleseHasznalatiEsetek.drawio.png[Haszná
 | A látogató látja a kórházak listáját, kiválaszthat egyet közülük.
 
 | Használati eset realizáció
-| Technikai modell
+| link:../technikai-modellek/korhazakKezeleseTechnikaiModell.adoc[Technikai modell]
 
 |===
 
@@ -77,7 +77,7 @@ image::../static/UC_diagrams/korhazakKezeleseHasznalatiEsetek.drawio.png[Haszná
 | A látogató látja a kiválasztott kórház metaadatait
 
 | Használati eset realizáció
-| Technikai modell
+| link:../technikai-modellek/korhazakKezeleseTechnikaiModell.adoc[Technikai modell]
 
 |===
 
@@ -112,7 +112,7 @@ image::../static/UC_diagrams/korhazakKezeleseHasznalatiEsetek.drawio.png[Haszná
 | A látogató és az adminisztrátor számára az imént rögzített kórház elérhető a rendszerben
 
 | Használati eset realizáció
-| Technikai modell
+| link:../technikai-modellek/korhazakKezeleseTechnikaiModell.adoc[Technikai modell]
 
 |===
 
@@ -149,7 +149,7 @@ image::../static/UC_diagrams/korhazakKezeleseHasznalatiEsetek.drawio.png[Haszná
 | Az adminisztrátor látja a kórház módosított metaadatait, mely immár a látogató számára is a módosított adatokkal elérhető
 
 | Használati eset realizáció
-| Technikai modell
+| link:../technikai-modellek/korhazakKezeleseTechnikaiModell.adoc[Technikai modell]
 
 |===
 
@@ -186,7 +186,7 @@ image::../static/UC_diagrams/korhazakKezeleseHasznalatiEsetek.drawio.png[Haszná
 | A látogató és az adminisztrátor a továbbiakban nem látja a törölt kórház metaadatait
 
 | Használati eset realizáció
-| Technikai modell
+| link:../technikai-modellek/korhazakKezeleseTechnikaiModell.adoc[Technikai modell]
 
 |===
 

@@ -42,7 +42,7 @@ image:../static/UC_diagrams/idopontokKezeleseHasznalatiEsetek.drawio.png[Haszná
 | Az adminisztrátor látja az időpontok listáját, kiválaszthat egyet közülük.
 
 | Használati eset realizáció
-| Technikai modell
+| link:../technikai-modellek/idopontokKezeleseTechnikaiModell.adoc[Technikai modell]
 
 |===
 
@@ -75,7 +75,7 @@ image:../static/UC_diagrams/idopontokKezeleseHasznalatiEsetek.drawio.png[Haszná
 | Az adminisztrátor látja a kiválasztott időpont metaadatait
 
 | Használati eset realizáció
-| Technikai modell
+| link:../technikai-modellek/idopontokKezeleseTechnikaiModell.adoc[Technikai modell]
 
 |===
 
@@ -113,7 +113,7 @@ lépésről lépésre végiglépkedve megadja az időpontfoglaláshoz szüksége
 Erre az időpontra NEM lehet másik vizsgálatot foglalni.
 
 | Használati eset realizáció
-| Technikai modell
+| link:../technikai-modellek/idopontokKezeleseTechnikaiModell.adoc[Technikai modell]
 
 |===
 
@@ -151,7 +151,7 @@ Erre az időpontra NEM lehet másik vizsgálatot foglalni.
 Erre az időpontra ismét lehetséges az időpontfoglalás.
 
 | Használati eset realizáció
-| Technikai modell
+| link:../technikai-modellek/idopontokKezeleseTechnikaiModell.adoc[Technikai modell]
 
 |===
 

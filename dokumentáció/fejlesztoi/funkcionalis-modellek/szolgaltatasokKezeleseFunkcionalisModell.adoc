@@ -43,7 +43,7 @@ image::../static/UC_diagrams/szolgaltatasokKezeleseHasznalatiEsetek.drawio.png[H
 | A látogató látja a szolgáltatások listáját, kiválaszthat egyet közülük.
 
 | Használati eset realizáció
-| Technikai modell
+| link:../technikai-modellek/szolgaltatasokKezeleseTechnikaiModell.adoc[Technikai modell]
 
 |===
 
@@ -76,7 +76,7 @@ image::../static/UC_diagrams/szolgaltatasokKezeleseHasznalatiEsetek.drawio.png[H
 | A látogató látja a kiválasztott szolgáltatás metaadatait
 
 | Használati eset realizáció
-| Technikai modell
+| link:../technikai-modellek/szolgaltatasokKezeleseTechnikaiModell.adoc[Technikai modell]
 
 |===
 
@@ -111,7 +111,7 @@ image::../static/UC_diagrams/szolgaltatasokKezeleseHasznalatiEsetek.drawio.png[H
 | A látogató és az adminisztrátor számára az imént rögzített szolgáltatás elérhető a rendszerben
 
 | Használati eset realizáció
-| Technikai modell
+| link:../technikai-modellek/szolgaltatasokKezeleseTechnikaiModell.adoc[Technikai modell]
 
 |===
 
@@ -148,7 +148,7 @@ image::../static/UC_diagrams/szolgaltatasokKezeleseHasznalatiEsetek.drawio.png[H
 | Az adminisztrátor látja a szolgáltatás módosított metaadatait, mely immár a látogató számára is a módosított adatokkal elérhető
 
 | Használati eset realizáció
-| Technikai modell
+| link:../technikai-modellek/szolgaltatasokKezeleseTechnikaiModell.adoc[Technikai modell]
 
 |===
 
@@ -185,7 +185,7 @@ image::../static/UC_diagrams/szolgaltatasokKezeleseHasznalatiEsetek.drawio.png[H
 | A látogató és az adminisztrátor a továbbiakban nem látja a törölt szolgáltatás metaadatait
 
 | Használati eset realizáció
-| Technikai modell
+| link:../technikai-modellek/szolgaltatasokKezeleseTechnikaiModell.adoc[Technikai modell]
 
 |===
 

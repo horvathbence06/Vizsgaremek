@@ -1,0 +1,264 @@
+= Kórházak kezelése - Technikai modell
+
+== Használati eset realizációk
+
+=== Kórházak listázása
+
+Használati eset azonosítója: UC_K_List
+
+A felhasználó a
+
+* fő menüsorban
+* a Kórházak gombra kattintva
+
+a Kórházak listázása felületre jut és az oldalbetöltődés részeként meghívja a
+
+vagy
+
+* az admin felületen
+* a Kórházak kezelése gombra kattintva
+
+meghívja a
+
+* GET/korhaz/list-all azonosítójú Kórházak listázása elnevezésű interfészt
+
+A response visszatér a kórházak listájával az alábbi mapping alapján:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás a látogatói felületen | Felhasználás az admin felületen
+
+|KorhazList[].korhazId
+|Nem jelenik meg. A frontend a kórház megtekintése opcióhoz használja.
+|Nem jelenik meg. A frontend a kórház megtekintése opcióhoz használja.
+
+|KorhazList[].korhazNev
+|Kórház neve címke
+|Kórház neve oszlop
+
+|KorhazList[].kepNev
+|Kórház képe (PNG formátum)
+|Nem jelenik meg, a frontend kizárólag a látogatói felületen használja.
+
+|KorhazList[].korhazCim
+|Kórház címe címke
+|Kórház címe oszlop
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Kórház megtekintése
+
+Használati eset azonosítója: UC_K_Read
+
+A felhasználó a
+
+* Kórházak listázása felületen
+* az adott kórház gombjára kattintva
+
+a Kórház megtekintése felületre jut és az oldalbetöltődés részeként meghívja a
+
+vagy
+
+* az admin felületen
+* a Kórházak kezelése gombra kattintva
+* az adott kórház sorára kattintva
+
+meghívja a
+
+* GET/korhaz/{id} azonosítójú Kórház megtekintése elnevezésű interfészt az alábbi mapping megvalósításával
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás a látogatói vagy az admin felületen
+
+| korhazId
+| A frontend rendelkezésére álló azonosító
+
+|===
+
+A response visszatér a kórház metaadataival. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás a látogatói felületen | Felhasználás az admin felületen
+
+|KorhazRead.korhazId
+|Nem jelenik meg. A frontend a kórház szerkesztése és kórház törlése opciókhoz használja.
+|Nem jelenik meg. A frontend a kórház szerkesztése és kórház törlése opciókhoz használja.
+
+|KorhazRead.korhazNev
+|Kórház neve oldalrész
+|Kórház neve címke
+
+|KorhazRead.kepNev
+|Kórház képe oldalrész
+|Nem jelenik meg, a frontend kizárólag a látogatói felületen használja.
+
+|KorhazRead.korhazCim
+|Térkép oldalrész
+|Kórház címe címke
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Kórház létrehozása
+
+Használati eset azonosítója: UC_K_Create
+
+Az adminisztrátor
+
+* az admin felületen
+* az Új kórház felületen
+* a Rögzítés gombra kattintva
+
+meghívja a
+
+* POST/korhaz azonosítójú Kórház létrehozása elnevezésű interfészt az alábbi mapping megvalósításával
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás az admin felületen
+
+|KorhazSave.korhazNev
+|Kórház neve mező tartalma
+
+|KorhazSave.kepNev
+|Kép neve mező tartalma
+
+|KorhazSave.korhazCim
+|Cím mező tartalma
+
+|===
+
+A response visszatér a kórház metaadataival. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|KorhazRead.korhazId
+|Nem jelenik meg. A frontend a kórház szerkesztése és kórház törlése opciókhoz használja.
+
+|KorhazRead.korhazNev
+|Kórház neve mező tartalma
+
+|KorhazRead.kepNev
+|Kép neve mező tartalma
+
+|KorhazRead.korhazCim
+|Cím mező tartalma
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Kórház módosítása
+
+Használati eset azonosítója: UC_K_Update
+
+Az adminisztrátor
+
+* az admin felületen
+* az Kórházak kezelése felületen
+* a Szerkesztés gombra kattintva
+
+meghívja a
+
+* PUT/korhaz/{id} azonosítójú Kórház módosítása elnevezésű interfészt az alábbi mapping megvalósításával
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás az admin felületen
+
+|korhazId
+|A frontend rendelkezésére álló azonosító
+
+|KorhazSave.korhazNev
+|Kórház neve mező tartalma
+
+|KorhazSave.kepNev
+|Kép neve mező tartalma
+
+|KorhazSave.korhazCim
+|Cím mező tartalma
+
+|===
+
+A response visszatér a kórház metaadataival. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|KorhazRead.korhazId
+|Nem jelenik meg. A frontend a kórház szerkesztése és kórház törlése opciókhoz használja.
+
+|KorhazRead.korhazNev
+|Kórház neve mező tartalma
+
+|KorhazRead.kepNev
+|Kép neve mező tartalma
+
+|KorhazRead.korhazCim
+|Cím mező tartalma
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Kórház törlése
+
+Használati eset azonosítója: UC_K_Delete
+
+Az adminisztrátor
+
+* az admin felületen
+* az Kórházak kezelése felületen
+* a Törlés gombra kattintva
+* a megjelenő párbeszédablakon az OK gombra kattintva
+
+meghívja a
+
+* DELETE/korhaz/{id} azonosítójú Kórház törlése elnevezésű interfészt az alábbi mapping megvalósításával
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás az admin felületen
+
+|korhazId
+|A frontend rendelkezésére álló azonosító
+
+|===
+
+A response visszatér a kórház metaadataival. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|KorhazRead.korhazId
+|Nem jelenik meg. A frontend a kórház szerkesztése és kórház törlése opciókhoz használja.
+
+|KorhazRead.korhazNev
+|Kórház neve mező tartalma
+
+|KorhazRead.kepNev
+|Kép neve mező tartalma
+
+|KorhazRead.korhazCim
+|Cím mező tartalma
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+link:../technikai-modellek.adoc[Vissza]

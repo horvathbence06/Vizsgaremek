@@ -41,7 +41,7 @@ image:../static/UC_diagrams/szakteruletekKezeleseHasznalatiEsetek.drawio.png[Has
 | Az adminisztrátor (bejelentkezett felhasználó) látja a szakterületek listáját, kiválaszthat egyet közülük.
 
 | Használati eset realizáció
-| Technikai modell
+| link:../technikai-modellek/szakteruletekKezeleseTechnikaiModell.adoc[Technikai modell]
 
 |===
 
@@ -74,7 +74,7 @@ image:../static/UC_diagrams/szakteruletekKezeleseHasznalatiEsetek.drawio.png[Has
 | Az adminisztrátor látja a kiválasztott szakterület metaadatait
 
 | Használati eset realizáció
-| Technikai modell
+| link:../technikai-modellek/szakteruletekKezeleseTechnikaiModell.adoc[Technikai modell]
 
 |===
 
@@ -109,7 +109,7 @@ image:../static/UC_diagrams/szakteruletekKezeleseHasznalatiEsetek.drawio.png[Has
 | A látogató és az adminisztrátor számára az imént rögzített szakterület elérhető a rendszerben
 
 | Használati eset realizáció
-| Technikai modell
+| link:../technikai-modellek/szakteruletekKezeleseTechnikaiModell.adoc[Technikai modell]
 
 |===
 
@@ -146,7 +146,7 @@ image:../static/UC_diagrams/szakteruletekKezeleseHasznalatiEsetek.drawio.png[Has
 | A látogató és az adminisztrátor a továbbiakban nem látja a törölt szakterület metaadatait
 
 | Használati eset realizáció
-| Technikai modell
+| link:../technikai-modellek/szakteruletekKezeleseTechnikaiModell.adoc[Technikai modell]
 
 |===
 

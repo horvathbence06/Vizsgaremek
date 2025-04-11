@@ -1,0 +1,245 @@
+= Időpontok kezelése - Technikai modell
+
+== Használati eset realizációk
+
+=== Időpontok listázása
+
+Használati eset azonosítója: UC_I_List
+
+Az adminisztrátor
+
+* az admin felületen
+* az Időpontok kezelése gombra kattintva
+
+az Időpontok listázása felületre jut és az oldalbetöltődés részeként meghívja a
+
+* GET/idopont/list-all azonosítójú Időpontok listázása elnevezésű interfészt
+
+A response visszatér az időpontok listájával az alábbi mapping alapján:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|IdopontList[].idopontId
+|Nem jelenik meg. A frontend az időpont megtekintése opcióhoz használja.
+
+|IdopontList[].ido
+|Idő oszlop
+
+|IdopontList[].foglaloNeve
+|Foglaló neve oszlop
+
+|IdopontList[].foglaloTelefonszama
+|Foglaló telefonszáma oszlop
+
+|IdopontList[].foglaloEmailCim
+|Foglaló e-mail címe oszlop
+
+|IdopontList[].orvos.orvosId
+|Nem jelenik meg. A frontend az orvos időponthoz történő hozzárendeléséhez használja.
+
+|IdopontList[].szolgaltatas.szolgaltatasId
+|Nem jelenik meg. A frontend a szolgáltatás időponthoz történő hozzárendeléséhez használja.
+
+|IdopontList[].korhaz.korhazId
+|Nem jelenik meg. A frontend a kórház időponthoz történő hozzárendeléséhez használja.
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Időpont megtekintése
+
+Használati eset azonosítója: UC_I_Read
+
+Az adminisztrátor
+
+* az Időpontok listázása felületen
+* az adott időpont sorára kattintva
+
+az Időpont megtekintése felületre jut és az oldalbetöltődés részeként meghívja a
+
+* GET/idopont/{id} azonosítójú Időpont megtekintése elnevezésű interfészt az alábbi mapping megvalósításával
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás az admin felületen
+
+| idopontId
+| A frontend rendelkezésére álló azonosító
+
+|===
+
+A response visszatér a szakterület metaadataival. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|IdopontRead.idopontId
+|Nem jelenik meg. A frontend az időpont megtekintése opcióhoz használja.
+
+|IdopontRead.ido
+|Idő címke
+
+|IdopontRead.foglaloNeve
+|Név címke
+
+|IdopontRead.foglaloTelefonszama
+|Telefonszám címke
+
+|IdopontRead.foglaloEmailCim
+|Email címke
+
+|IdopontRead.orvos.nev
+|Orvos neve címke
+
+|IdopontRead.szolgaltatas.szolgaltatasNev
+|Szolgáltatás neve címke
+
+|IdopontRead.korhaz.korhazNev
+|Kórház neve címke
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Időpont foglalása
+
+Használati eset azonosítója: UC_I_Create
+
+A látogató
+
+* az Időpontfoglalás gombra kattintást követően
+* az Időpont foglalása felületen a szükséges adatok megadása után
+* az Időpont foglalása gombra kattintva
+
+meghívja a
+
+* POST/idopont azonosítójú Időpont foglalása elnevezésű interfészt az alábbi mapping megvalósításával
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás a látogatói felületen
+
+| IdopontSave.ido
+| A Dátum és időpont kiválasztása felületrészen a naptár és az időcímkék által meghatározott időpont
+
+| IdopontSave.foglaloNeve
+| Az Adatok megadása felületrészen a Név mező tartalma
+
+| IdopontSave.foglaloTelefonszama
+| Az Adatok megadása felületrészen a Telefonszám mező tartalma
+
+| IdopontSave.foglaloEmailCim
+| Az Adatok megadása felületrészen az E-mail mező tartalma
+
+| IdopontSave.orvosId
+| Az Orvos kiválasztása felületrészen az Orvos címkék közül kiválasztott orvos ID-ja
+
+| IdopontSave.szolgaltatasId
+| A Szolgaltatás kiválasztása felületrészen a Szolgáltatás címkék közül kiválasztott szolgáltatás ID-ja
+
+| IdopontSave.korhazId
+| Az Orvos kiválasztása felületrészen az Orvos címkék közül kiválasztott orvos ID-ja
+
+|===
+
+A response visszatér a szakterület metaadataival. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|IdopontRead.idopontId
+|Nem jelenik meg. A frontend az admin felületen az időpont megtekintése és időpont törlése opciókhoz használja
+
+| IdopontRead.ido
+| A Dátum és időpont kiválasztása felületrészen a naptár és az időcímkék által meghatározott időpont
+
+| IdopontRead.foglaloNeve
+| Az Adatok megadása felületrészen a Név mező tartalma
+
+| IdopontRead.foglaloTelefonszama
+| Az Adatok megadása felületrészen a Telefonszám mező tartalma
+
+| IdopontRead.foglaloEmailCim
+| Az Adatok megadása felületrészen az E-mail mező tartalma
+
+| IdopontRead.orvosId
+| Az Orvos kiválasztása felületrészen az Orvos címkék közül kiválasztott orvos ID-ja
+
+| IdopontRead.szolgaltatasId
+| A Szolgaltatás kiválasztása felületrészen a Szolgáltatás címkék közül kiválasztott szolgáltatás ID-ja
+
+| IdopontRead.korhazId
+| Az Orvos kiválasztása felületrészen az Orvos címkék közül kiválasztott orvos ID-ja
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Időpont törlése
+
+Használati eset azonosítója: UC_I_Delete
+
+Az adminisztrátor
+
+* az Időpontok listázása felületen
+* a törölni kívánt időpont sorára kattintva
+* a Törlés gombra kattintva
+
+meghívja a
+
+* DELETE/idopont/{id} azonosítójú Időpont törlése elnevezésű interfészt az alábbi mapping megvalósításával
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás az admin felületen
+
+|idopontId
+|A frontend rendelkezésére álló azonosító
+
+|===
+
+A response visszatér a kórház metaadataival. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|IdopontRead.idopontId
+|Nem jelenik meg. A frontend az időpont megtekintése opcióhoz használja.
+
+|IdopontRead.ido
+|Idő címke
+
+|IdopontRead.foglaloNeve
+|Név címke
+
+|IdopontRead.foglaloTelefonszama
+|Telefonszám címke
+
+|IdopontRead.foglaloEmailCim
+|Email címke
+
+|IdopontRead.orvos.nev
+|Orvos neve címke
+
+|IdopontRead.szolgaltatas.szolgaltatasNev
+|Szolgáltatás neve címke
+
+|IdopontRead.korhaz.korhazNev
+|Kórház neve címke
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+link:../technikai-modellek.adoc[Vissza]

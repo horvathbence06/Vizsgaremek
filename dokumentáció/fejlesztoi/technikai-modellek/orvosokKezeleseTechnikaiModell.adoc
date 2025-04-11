@@ -1,0 +1,471 @@
+= Orvosok kezelése - Technikai modell
+
+== Használati eset realizációk
+
+=== Orvosok listázása
+
+Használati eset azonosítója: UC_O_List
+
+Az adminisztrátor
+
+* az admin felületen
+* az Orvosok kezelése gombra kattintva
+
+az Orvosok listázása felületre jut és az oldalbetöltődés részeként meghívja a
+
+* GET/orvos/list-all azonosítójú Orvosok listázása elnevezésű interfészt
+
+A response visszatér az orvosok listájával az alábbi mapping alapján:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|OrvosList.orvosId
+|Nem jelenik meg. A frontend az Orvos megtekintése opcióhoz használja.
+
+|OrvosList.nev
+|Orvos neve oszlop
+
+|OrvosList.kepNev
+|Nem jelenik meg. A frontend az Orvosok szűrése kórház szerint (A: Látogatói felület) opcióhoz használja.
+
+|OrvosList.szakterulet.szakteruletNev
+|Szakterület oszlop
+
+|OrvosList.email
+|Nem jelenik meg. A frontend az Orvosok szűrése kórház szerint (A: Látogatói felület) opcióhoz használja.
+
+|OrvosList.telefonszam
+|Nem jelenik meg. A frontend az Orvosok szűrése kórház szerint (A: Látogatói felület) opcióhoz használja.
+
+
+|OrvosList.korhazId
+|Nem jelenik meg. A frontend az Orvosok szűrése kórház szerint (B: Admin felület) opcióhoz használja.
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Orvos megtekintése
+
+Használati eset azonosítója: UC_O_Read
+
+Az adminisztrátor
+
+* az Orvosok listázása felületen
+* az adott orvos sorára kattintva
+
+az Orvos megtekintése felületre jut és az oldalbetöltődés részeként meghívja a
+
+* GET/orvos/{id} azonosítójú Orvos megtekintése elnevezésű interfészt az alábbi mapping megvalósításával
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás az admin felületen
+
+| orvosId
+| A frontend rendelkezésére álló azonosító
+
+|===
+
+A response visszatér az orvos metaadataival. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|OrvosRead.orvosId
+|Nem jelenik meg. A frontend az orvos szerkesztése és orvos törlése opciókhoz használja.
+
+|OrvosRead.nev
+|Orvos neve címke
+
+|OrvosRead.kepNev
+|Nem jelenik meg. A frontend az Orvosok szűrése kórház szerint (A: Látogatói felület) opcióhoz használja.
+
+|OrvosRead.szakterulet.szakteruletNev
+|Szakterület címke
+
+|OrvosRead.email
+|Nem jelenik meg. A frontend az Orvosok szűrése kórház szerint (A: Látogatói felület) opcióhoz használja.
+
+|OrvosRead.telefonszam
+|Nem jelenik meg. A frontend az Orvosok szűrése kórház szerint (A: Látogatói felület) opcióhoz használja.
+
+|OrvosRead.korhazId
+|Nem jelenik meg. A frontend az Orvosok szűrése kórház szerint (B: Admin felület) opcióhoz használja.
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Orvos létrehozása
+
+Használati eset azonosítója: UC_O_Create
+
+Az adminisztrátor
+
+* az admin felületen
+* az Új orvos felületen
+* a Rögzítés gombra kattintva
+
+meghívja a
+
+* POST/orvos azonosítójú Orvos létrehozása elnevezésű interfészt az alábbi mapping megvalósításával
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás az admin felületen
+
+|OrvosSave.nev
+|Orvos neve mező tartalma
+
+|OrvosSave.kepNev
+|Kép neve mező tartalma
+
+|OrvosSave.szakteruletId
+|Szakterület legördülő menü
+
+|OrvosSave.email
+|Email mező tartalma
+
+|OrvosSave.telefonszam
+|Telefonszám mező tartalma
+
+|OrvosSave.korhazId
+|Kórház legördülő menü
+
+|===
+
+A response visszatér az orvos metaadataival. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|OrvosRead.orvosId
+|Nem jelenik meg. A frontend az orvos módosítása és orvos törlése opciókhoz használja.
+
+|OrvosRead.nev
+|Orvos neve mező tartalma
+
+|OrvosRead.kepNev
+|Kép neve mező tartalma
+
+|OrvosRead.szakteruletId
+|Szakterület legördülő menü
+
+|OrvosRead.email
+|Email mező tartalma
+
+|OrvosRead.telefonszam
+|Telefonszám mező tartalma
+
+|OrvosRead.korhazId
+|Kórház legördülő menü
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Orvos módosítása
+
+Használati eset azonosítója: UC_O_Update
+
+Az adminisztrátor
+
+* az Orvos megtekinése felületen
+* a Szerkesztés gombra kattintva
+
+meghívja a
+
+* PUT/orvos/{id} azonosítójú Orvos módosítása elnevezésű interfészt az alábbi mapping megvalósításával
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás az admin felületen
+
+|orvosId
+|A frontend rendelkezésére álló azonosító
+
+|OrvosSave.nev
+|Orvos neve mező tartalma
+
+|OrvosSave.kepNev
+|Kép neve mező tartalma
+
+|OrvosSave.szakteruletId
+|Szakterület legördülő menü
+
+|OrvosSave.email
+|Email mező tartalma
+
+|OrvosSave.telefonszam
+|Telefonszám mező tartalma
+
+|OrvosSave.korhazId
+|Kórház legördülő menü
+
+|===
+
+A response visszatér az orvos metaadataival. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|OrvosRead.orvosId
+|Nem jelenik meg. A frontend az orvos módosítása és orvos törlése opciókhoz használja.
+
+|OrvosRead.nev
+|Orvos neve mező tartalma
+
+|OrvosRead.kepNev
+|Kép neve mező tartalma
+
+|OrvosRead.szakteruletId
+|Szakterület legördülő menü
+
+|OrvosRead.email
+|Email mező tartalma
+
+|OrvosRead.telefonszam
+|Telefonszám mező tartalma
+
+|OrvosRead.korhazId
+|Kórház legördülő menü
+
+|===
+
+=== Orvos törlése
+
+Használati eset azonosítója: UC_O_Delete
+
+Az adminisztrátor
+
+* az Orvos megtekintése felületen
+* a Törlés gombra kattintva
+* a megjelenő párbeszédablakon az OK gombra kattintva
+
+meghívja a
+
+* DELETE/orvos/{id} azonosítójú Orvos törlése elnevezésű interfészt az alábbi mapping megvalósításával
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás az admin felületen
+
+|orvosId
+|A frontend rendelkezésére álló azonosító
+
+|===
+
+A response visszatér a kórház metaadataival. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|OrvosRead.orvosId
+|Nem jelenik meg. A frontend az orvos módosítása és orvos törlése opciókhoz használja.
+
+|OrvosRead.nev
+|Orvos neve mező tartalma
+
+|OrvosRead.kepNev
+|Kép neve mező tartalma
+
+|OrvosRead.szakteruletId
+|Szakterület legördülő menü
+
+|OrvosRead.email
+|Email mező tartalma
+
+|OrvosRead.telefonszam
+|Telefonszám mező tartalma
+
+|OrvosRead.korhazId
+|Kórház legördülő menü
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Orvosok szűrése kórház szerint (A: Látogatói felület)
+
+Használati eset azonosítója: UC_O_Filter_By_Korhaz
+
+A látogató
+
+* a Kórházak felületen
+* a szűrés alapjául szolgáló kórházra kattintva
+
+az Orvosok szűrése kórház szerint (A: Látogatói felület) felületre jut és az oldalbetöltődés részeként meghívja a
+
+* GET/orvos/filter/by-korhaz azonosítójú Orvosok szűrése kórház szerint (A: Látogatói felület) elnevezésű interfészt az alábbi mapping megvalósításával:
+
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás az admin felületen
+
+| korhazId
+| A frontend rendelkezésére álló azonosító
+
+|===
+
+A response visszatér az orvosok szűrt listájával. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|OrvosList.orvosId
+|Nem jelenik meg. A frontend az Orvos megtekintése opcióhoz használja.
+
+|OrvosList.nev
+|Orvos neve címke
+
+|OrvosList.kepNev
+|Orvos képe (PNG formátum)
+
+|OrvosList.szakterulet.szakteruletNev
+|Szakterület neve címke
+
+|OrvosList.email
+|E-mail címke
+
+|OrvosList.telefonszam
+|Telefonszám címke
+
+|OrvosList.korhazId
+|Nem jelenik meg. A frontend az Orvosok szűrése kórház szerint (A: Látogatói felület) opcióhoz használja.
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Orvosok szűrése kórház szerint (B: Admin felület)
+
+Használati eset azonosítója: UC_O_Filter_By_Korhaz
+
+Az adminisztrátor
+
+* az admin felületen
+* az Orvosok kezelése gombra kattintva
+* a legördülő menüből a szűrés alapjául szolgáló kórházat kiválasztva
+
+az Orvosok szűrése kórház szerint (B: Admin felület) felületre jut és az oldalbetöltődés részeként meghívja a
+
+* GET/orvos/filter/by-korhaz azonosítójú Orvosok szűrése kórház szerint (B: Admin felület) elnevezésű interfészt az alábbi mapping alapján:
+
+|===
+|Interfész bemeneti paraméter | Felhasználás az admin felületen
+
+| korhazId
+| A frontend rendelkezésére álló azonosító
+
+|===
+
+A response visszatér az orvosok szűrt listájával. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|OrvosList.orvosId
+|Nem jelenik meg. A frontend az Orvos megtekintése opcióhoz használja.
+
+|OrvosList.nev
+|Orvos neve oszlop
+
+|OrvosList.kepNev
+|Nem jelenik meg. A frontend az Orvosok szűrése kórház szerint (A: Látogatói felület) opcióhoz használja.
+
+|OrvosList.szakterulet.szakteruletNev
+|Szakterület oszlop
+
+|OrvosList.email
+|Nem jelenik meg. A frontend az Orvosok szűrése kórház szerint (A: Látogatói felület) opcióhoz használja.
+
+|OrvosList.telefonszam
+|Nem jelenik meg. A frontend az Orvosok szűrése kórház szerint (A: Látogatói felület) opcióhoz használja.
+
+
+|OrvosList.korhazId
+|Nem jelenik meg. A frontend a szűréshez használja.
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+==== Orvosok szűrése kórház és szakterület szerint
+
+Használati eset azonosítója: UC_O_Filter_By_Korhaz_And_Szakterulet
+
+A látogató
+
+* az Időpont foglalása felületen
+* az Orvos kiválasztása felületrészre jutva
+
+az Orvosok szűrése kórház szerint (B: Admin felület) felületre jut és az oldalbetöltődés részeként meghívja a
+
+* GET/orvos/filter/by-korhaz-and-szakterulet azonosítójú Orvosok szűrése kórház és szakterület szerint elnevezésű interfészt az alábbi mapping alapján:
+
+|===
+|Interfész bemeneti paraméter | Felhasználás az admin felületen
+
+| korhazId
+| A frontend rendelkezésére álló azonosító
+
+| szakteruletId
+| A frontend rendelkezésére álló azonosító
+
+|===
+
+A response visszatér az orvosok szűrt listájával. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|OrvosList.orvosId
+|Nem jelenik meg. A frontend az Orvos megtekintése opcióhoz használja.
+
+|OrvosList.nev
+|Orvos neve címke
+
+|OrvosList.kepNev
+|Nem jelenik meg. A frontend az Időpont foglalása opcióhoz használja.
+
+|OrvosList.szakterulet.szakteruletNev
+|Nem jelenik meg. A frontend az Időpont foglalása opcióhoz használja.
+
+|OrvosList.email
+|Nem jelenik meg. A frontend az Időpont foglalása opcióhoz használja.
+
+|OrvosList.telefonszam
+|Nem jelenik meg. A frontend az Időpont foglalása opcióhoz használja.
+
+|OrvosList.korhazId
+|Nem jelenik meg. A frontend az Időpont foglalása opcióhoz használja.
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+link:../technikai-modellek.adoc[Vissza]

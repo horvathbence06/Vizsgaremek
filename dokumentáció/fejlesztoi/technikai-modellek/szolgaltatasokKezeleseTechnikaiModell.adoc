@@ -1,0 +1,264 @@
+= Szolgáltatások kezelése - Technikai modell
+
+== Használati eset realizációk
+
+=== Szolgáltatások listázása
+
+Használati eset azonosítója: UC_SZO_List
+
+A felhasználó a
+
+* fő menüsorban
+* az Árlista gombra kattintva
+
+a Szolgáltatások listázása felületre jut és az oldalbetöltődés részeként meghívja a
+
+vagy
+
+* az admin felületen
+* a Szolgáltatások kezelése gombra kattintva
+
+meghívja a
+
+* GET/szolgaltatas/list-all azonosítójú Szolgáltatások listázása elnevezésű interfészt
+
+A response visszatér a szolgáltatások listájával az alábbi mapping alapján:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás a látogatói felületen | Felhasználás az admin felületen
+
+|SzolgaltatasList[].szolgaltatasId
+|Nem jelenik meg. A frontend a szolgáltatás megtekintése opcióhoz használja.
+|Nem jelenik meg. A frontend a szolgáltatás megtekintése opcióhoz használja.
+
+|SzolgaltatasList[].szolgaltatasNev
+|Szolgáltatás oszlop
+|Szolgáltatás neve oszlop
+
+|SzolgaltatasList[].szakterulet.szakteruletNev
+|Nem jelenik meg. A frontend az időpontfoglalásnál az orvosok és a szolgáltatások összekötéséhez használja.
+|Szakterület oszlop
+
+|SzolgaltatasList[].ar
+|Ár oszlop
+|Ár oszlop
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Szolgáltatás megtekintése
+
+Használati eset azonosítója: UC_SZO_Read
+
+A felhasználó a
+
+* Szolgáltatások listázása felületen
+* az adott szolgáltatás sorára kattintva
+
+a Szolgáltatás megtekintése felületre jut és az oldalbetöltődés részeként meghívja a
+
+vagy
+
+* az admin felületen
+* a Szolgáltatások kezelése gombra kattintva
+* az adott szolgáltatás sorára kattintva
+
+meghívja a
+
+* GET/szolgaltatas/{id} azonosítójú Szolgáltatás megtekintése elnevezésű interfészt az alábbi mapping megvalósításával
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás a látogatói vagy az admin felületen
+
+| szolgaltatasId
+| A frontend rendelkezésére álló azonosító
+
+|===
+
+A response visszatér a szolgáltatás metaadataival. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás a látogatói felületen | Felhasználás az admin felületen
+
+|SzolgaltatasRead.szolgaltatasId
+|Nem jelenik meg. A frontend a szolgáltatás szerkesztése és szolgáltatás törlése opciókhoz használja.
+|Nem jelenik meg. A frontend a szolgáltatás szerkesztése és szolgáltatás törlése opciókhoz használja.
+
+|SzolgaltatasRead.szolgaltatasNev
+|Szolgáltatás neve címke
+|Szolgáltatás neve oszlop
+
+|SzolgaltatasRead.szakterulet.szakteruletNev
+|Nem jelenik meg. A frontend az időpontfoglalásnál az orvosok és a szolgáltatások összekötéséhez használja.
+|Szakterület oszlop
+
+|SzolgaltatasRead.ar
+|Ár címke
+|Ár oszlop
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Szolgáltatás létrehozása
+
+Használati eset azonosítója: UC_SZO_Create
+
+Az adminisztrátor
+
+* az admin felületen
+* az Új szolgáltatás felületen
+* a Rögzítés gombra kattintva
+
+meghívja a
+
+* POST/szolgaltatas azonosítójú Szolgáltatás létrehozása elnevezésű interfészt az alábbi mapping megvalósításával
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás az admin felületen
+
+|SzolgaltatasSave.szolgaltatasNev
+|Szolgáltatás neve mező tartalma
+
+|SzolgaltatasSave.szakteruletId
+|Szakterület kiválasztása a legördülő listából
+
+|SzakteruletSave.ar
+|Ár mező tartalma
+
+|===
+
+A response visszatér a szolgáltatás metaadataival. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|SzolgaltatasRead.szolgaltatasId
+|Nem jelenik meg. A frontend a szolgáltatás szerkesztése és szolgáltatás törlése opciókhoz használja.
+
+|SzolgaltatasRead.szolgaltatasNev
+|Szolgáltatás neve mező tartalma
+
+|SzolgaltatasRead.szakteruletId
+|Szakterület kiválasztása a legördülő listából
+
+|SzakteruletRead.ar
+|Ár mező tartalma
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Szolgáltatás módosítása
+
+Használati eset azonosítója: UC_SZO_Update
+
+Az adminisztrátor
+
+* az admin felületen
+* a Szolgáltatások kezelése felületen
+* a Szerkesztés gombra kattintva
+
+meghívja a
+
+* PUT/szolgaltatas/{id} azonosítójú Szolgáltatás módosítása elnevezésű interfészt az alábbi mapping megvalósításával
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás az admin felületen
+
+|szolgaltatasId
+|A frontend rendelkezésére álló azonosító
+
+|SzolgaltatasSave.szolgaltatasNev
+|Szolgáltatás neve mező tartalma
+
+|SzolgaltatasSave.szakteruletId
+|Szakterület kiválasztása a legördülő listából
+
+|SzakteruletSave.ar
+|Ár mező tartalma
+
+|===
+
+A response visszatér a kórház metaadataival. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|SzolgaltatasRead.szolgaltatasId
+|Nem jelenik meg. A frontend a szolgáltatás szerkesztése és szolgáltatás törlése opciókhoz használja.
+
+|SzolgaltatasRead.szolgaltatasNev
+|Szolgáltatás neve mező tartalma
+
+|SzolgaltatasRead.szakteruletId
+|Szakterület kiválasztása a legördülő listából
+
+|SzakteruletRead.ar
+|Ár mező tartalma
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Szolgáltatás törlése
+
+Használati eset azonosítója: UC_SZO_Delete
+
+Az adminisztrátor
+
+* az admin felületen
+* a Szolgáltatások kezelése felületen
+* a Törlés gombra kattintva
+* a megjelenő párbeszédablakon az OK gombra kattintva
+
+meghívja a
+
+* DELETE/szolgaltatas/{id} azonosítójú Szolgáltatás törlése elnevezésű interfészt az alábbi mapping megvalósításával
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás az admin felületen
+
+|szolgaltatasId
+|A frontend rendelkezésére álló azonosító
+
+|===
+
+A response visszatér a kórház metaadataival. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|SzolgaltatasRead.szolgaltatasId
+|Nem jelenik meg. A frontend a szolgáltatás szerkesztése és szolgáltatás törlése opciókhoz használja.
+
+|SzolgaltatasRead.szolgaltatasNev
+|Szolgáltatás neve mező tartalma
+
+|SzolgaltatasRead.szakteruletId
+|Szakterület kiválasztása a legördülő listából
+
+|SzakteruletRead.ar
+|Ár mező tartalma
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+link:../technikai-modellek.adoc[Vissza]

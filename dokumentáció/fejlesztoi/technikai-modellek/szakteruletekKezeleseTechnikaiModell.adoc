@@ -1,0 +1,156 @@
+= Szakterületek kezelése - Technikai modell
+
+== Használati eset realizációk
+
+=== Szakterületek listázása
+
+Használati eset azonosítója: UC_SZA_List
+
+Az adminisztrátor
+
+* az admin felületen
+* a Szakterületek kezelése gombra kattintva
+
+a Szakterületek listázása felületre jut és az oldalbetöltődés részeként meghívja a
+
+* GET/szakterulet/list-all azonosítójú Szakterületek listázása elnevezésű interfészt
+
+A response visszatér a szakterületek listájával az alábbi mapping alapján:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|SzakteruletList[].szakteruletId
+|Nem jelenik meg. A frontend a szakterület megtekintése opcióhoz használja.
+
+|SzakteruletList[].szakteruletNev
+|Szakterület neve címke
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Szakterület megtekintése
+
+Használati eset azonosítója: UC_SZA_Read
+
+Az adminisztrátor a
+
+* Szakterületek listázása felületen
+* az adott szakterület kártyájára kattintva
+
+a Szakterület megtekintése felületre jut és az oldalbetöltődés részeként meghívja a
+
+* GET/szakterulet/{id} azonosítójú Szakterület megtekintése elnevezésű interfészt az alábbi mapping megvalósításával
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás az admin felületen
+
+| szakteruletId
+| A frontend rendelkezésére álló azonosító
+
+|===
+
+A response visszatér a szakterület metaadataival. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|SzakteruletRead.szakteruletId
+|Nem jelenik meg. A frontend a szakterület törlése opcióhoz használja.
+
+|SzakteruletRead.szakteruletNev
+|Szakterület neve címke
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Szatkerület létrehozása
+
+Használati eset azonosítója: UC_SZA_Create
+
+Az adminisztrátor
+
+* az admin felületen
+* az Új szakterület felületen
+* a Rögzítés gombra kattintva
+
+meghívja a
+
+* POST/szakterulet azonosítójú Szakterület létrehozása elnevezésű interfészt az alábbi mapping megvalósításával
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás az admin felületen
+
+|SzakteruletSave.szakteruletNev
+|Szakterület mező tartalma
+
+|===
+
+A response visszatér a szakterület metaadataival. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|SzakteruletRead.szakteruletId
+|Nem jelenik meg. A frontend a szakterület törlése opcióhoz használja.
+
+|SzakteruletRead.szakteruletNev
+|Szakterület neve mező tartalma
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+=== Szakterület törlése
+
+Használati eset azonosítója: UC_SZA_Delete
+
+Az adminisztrátor
+
+* az admin felületen
+* az Szakterületek listázása felületen
+* a Törlés gombra kattintva
+* a megjelenő párbeszédablakon az OK gombra kattintva
+
+meghívja a
+
+* DELETE/szakterulet/{id} azonosítójú Szakterület törlése elnevezésű interfészt az alábbi mapping megvalósításával
+[cols="1, 1']
+|===
+|Interfész bemeneti paraméter | Felhasználás az admin felületen
+
+|szakteruletId
+|A frontend rendelkezésére álló azonosító
+
+|===
+
+A response visszatér a kórház metaadataival. Mapping:
+
+[cols="1, 1']
+|===
+|Interfész kimeneti paraméter | Felhasználás az admin felületen
+
+|SzakteruletRead.szakteruletId
+|Nem jelenik meg. A frontend a szakterület törlése opcióhoz használja.
+
+|SzakteruletRead.szakteruletNev
+|Szakterület neve mező tartalma
+
+|===
+
+==== Érintett komponensek
+
+Frontend: frontend <- -> Backend: backend
+
+link:../technikai-modellek.adoc[Vissza]
