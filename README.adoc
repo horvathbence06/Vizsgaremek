@@ -6,4 +6,4 @@ link:dokumentáció/fejlesztoi/rendszerterv.adoc[Fejlesztői dokumentáció - re
 
 Felhasználói dokumentáció
 
-Indítási útmutató
+link:dokumentáció/fejlesztoi/inditasi-utmutato.adoc[Indítási útmutató]

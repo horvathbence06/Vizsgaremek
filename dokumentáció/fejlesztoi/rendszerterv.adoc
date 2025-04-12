@@ -4,6 +4,4 @@
 
 * link:technikai-modellek.adoc[Technikai modellek]
 
-* Interfész-leírások
-
 link:../../README.adoc[Vissza]
