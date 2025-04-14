@@ -12,7 +12,7 @@ import UjSzolgaltatas from './administrative/UjSzolgaltatas';
 
 function Admin() {
     const [selectedMenu, setSelectedMenu] = useState('');
-    const isMobile = useMediaQuery('(max-width:600px)'); 
+    const isMobile = useMediaQuery('(max-width:600px)');
 
     const menuItems = [
         { label: "Időpontok kezelése", value: "idopontok" },
@@ -62,40 +62,50 @@ function Admin() {
             justifyContent: "center",
             alignItems: "center",
             background: "linear-gradient(to bottom right, #9c7b48ff, #f5f5f5)",
-            padding: { xs: 2, md: 0 } 
+            padding: { xs: 2, md: 0 }
         }}>
             <Box sx={{
-                height: isMobile ? 'auto' : '70vh', 
-                width: isMobile ? '100%' : '110vh', 
+                height: isMobile ? 'auto' : '70vh',
+                width: isMobile ? '100%' : '110vh',
                 display: "flex",
-                flexDirection: isMobile ? 'column' : 'row', 
+                flexDirection: isMobile ? 'column' : 'row',
                 borderRadius: 3,
                 boxShadow: 4,
                 overflow: 'hidden',
                 backgroundColor: 'white'
             }}>
-                <Box sx={{
-                    width: isMobile ? '100%' : '28%', 
-                    backgroundColor: '#1f1f1f',
-                    color: 'white',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    padding: 2
-                }}>
+                <Box
+                    sx={{
+                        width: isMobile ? '100%' : '28%',
+                        backgroundColor: '#1f1f1f',
+                        color: 'white',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        padding: 2,
+                        overflowY: 'auto',
+                        maxHeight: isMobile ? 'auto' : '70vh',
+                        scrollbarWidth: 'none', 
+                        '&::-webkit-scrollbar': {
+                            display: 'none', 
+                        }
+                    }}
+                >
+
+
                     <Typography variant="h6" sx={{
                         marginBottom: 3,
                         fontFamily: 'Kaushan Script',
                         color: '#c69b6d',
-                        textAlign: isMobile ? 'center' : 'left' 
+                        textAlign: isMobile ? 'center' : 'left'
                     }}>
                         LuxMed Admin
                     </Typography>
 
                     {isMobile ? (
                         <Box sx={{
-                            overflowX: 'auto', 
-                            whiteSpace: 'nowrap', 
-                            padding: '0 10px' 
+                            overflowX: 'auto',
+                            whiteSpace: 'nowrap',
+                            padding: '0 10px'
                         }}>
                             <List sx={{ display: 'inline-flex', gap: 1 }}>
                                 {menuItems.map((item) => (
