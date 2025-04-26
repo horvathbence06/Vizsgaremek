@@ -4,6 +4,8 @@ link:dokumentáció/fejlesztoi/kovetelmenyek.adoc[Követelmény specifikáció]
 
 link:dokumentáció/fejlesztoi/rendszerterv.adoc[Fejlesztői dokumentáció - rendszerterv]
 
-Felhasználói dokumentáció
+link:dokumentáció/felhasznaloi/felhasznaloi_dokumentacio.docx[Felhasználói dokumentáció]
+
+link:dokumentáció/felhasznaloi/felhasznaloi_kezikonyv.docx[Felhasználói kézikönyv]
 
 link:dokumentáció/fejlesztoi/inditasi-utmutato.adoc[Indítási útmutató]
